@@ -1,0 +1,59 @@
+body{
+    font-family: 'Oxygen', sans-serif;
+    background-color: aliceblue;
+}
+
+header img {
+   height: 30px;
+    width: 30px;
+    background: #000;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header h1 {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Unica One', cursive;
+}
+
+#signIn {
+    padding: 5em;
+
+    text-align: center;
+    line-height: 2em;
+}
+
+#signIn form #username{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#signIn form #password{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#signIn form #submit{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#signIn span a{
+    text-decoration: none;
+    color: darkgray;
+}
+
