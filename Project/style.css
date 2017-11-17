@@ -15,6 +15,7 @@ header h1 {
     vertical-align: middle;
     font-family: 'Unica One', cursive;
     margin: 0px;
+    color: black;
 }
 
 #signIn {
@@ -61,6 +62,10 @@ header h1 {
     font-family: 'Oxygen', sans-serif;
 }
 
+#signIn form #submit:hover{
+    background-color: #4CAF70;
+}
+
 .signUp {
     text-align: center;
     line-height: 2em;
@@ -68,4 +73,19 @@ header h1 {
 
 .signUp a {
     color: darkgray;
+}
+
+/* MainPage.html */
+
+#mainPage{
+    line-height: 0.5em;
+}
+
+header h2{
+    font-size: 1em;
+}
+
+#logOut{
+    padding: 5em;
+    text-align: right;
 }
