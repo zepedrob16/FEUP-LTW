@@ -1,11 +1,22 @@
 body {
+    background-color: #edeff0;
+
+    margin: 0 auto;
+    width: 60em;
+
     font-family: 'Oxygen', sans-serif;
+
+}
+
+header {
+    background-color: white;
+    padding-top: 1em;
+    padding-left: 1em;
 }
 
 header img {
     height: 30px;
     width: 30px;
-    background: #000;
     display: inline-block;
     vertical-align: middle;
 }
@@ -19,17 +30,18 @@ header h1 {
 }
 
 #signIn {
+    background-color: white;
     padding-top: 5em;
     padding-bottom: 3em;
     text-align: center;
     line-height: 2em;
 }
 
-#signIn form{
+#signIn form {
     font-weight: bolder;
 }
 
-#signIn label{
+#signIn label {
     padding-right: 2em;
 }
 
@@ -62,11 +74,13 @@ header h1 {
     font-family: 'Oxygen', sans-serif;
 }
 
-#signIn form #submit:hover{
+#signIn form #submit:hover {
     background-color: #4CAF70;
 }
 
 .signUp {
+    background-color: white;
+    padding-bottom: 29vh;
     text-align: center;
     line-height: 2em;
 }
@@ -77,15 +91,15 @@ header h1 {
 
 /* MainPage.html */
 
-#mainPage{
+#mainPage {
     line-height: 0.5em;
 }
 
-header h2{
+header h2 {
     font-size: 1em;
 }
 
-#logOut{
+#logOut {
     padding: 5em;
     text-align: right;
 }
