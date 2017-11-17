@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <img src="icon.png" alt="icon" height="60" width="60" />
+        <img src="icon.png" />
         <h1>List Maker</h1>
     </header>
 
@@ -20,22 +20,25 @@
         <form action="mainPage.html" method="post">
             <label for="username">Username:</label>
             <input type="text" type="text" id="username"> <br />
-            
+
             <label for="password">Password:</label>
             <input type="password" id="password"> <br />
-                        
+
             <input type="submit" id="submit" value="Submit">
         </form>
-        
+
+    </div>
+
+    <div class="signUp">
         <span id="guest">
             <a href="mainPage.html">Sign in as guest</a>
         </span>
-    </div>
-
-    <div id= signUp>
-
-        <a href="signup.php">Dont have an account yet? Create one now!</a>
-
+        
+        <br />
+        
+        <span id="noAccount">
+            <a href="signup.php">Don't have an account yet? Create one now!</a>
+        </span>
     </div>
 
 </body>

@@ -1,10 +1,9 @@
-body{
+body {
     font-family: 'Oxygen', sans-serif;
-    background-color: aliceblue;
 }
 
 header img {
-   height: 30px;
+    height: 30px;
     width: 30px;
     background: #000;
     display: inline-block;
@@ -15,16 +14,25 @@ header h1 {
     display: inline-block;
     vertical-align: middle;
     font-family: 'Unica One', cursive;
+    margin: 0px;
 }
 
 #signIn {
-    padding: 5em;
-
+    padding-top: 5em;
+    padding-bottom: 3em;
     text-align: center;
     line-height: 2em;
 }
 
-#signIn form #username{
+#signIn form{
+    font-weight: bolder;
+}
+
+#signIn label{
+    padding-right: 2em;
+}
+
+#signIn form #username {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -33,7 +41,7 @@ header h1 {
     box-sizing: border-box;
 }
 
-#signIn form #password{
+#signIn form #password {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -42,7 +50,7 @@ header h1 {
     box-sizing: border-box;
 }
 
-#signIn form #submit{
+#signIn form #submit {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -50,10 +58,14 @@ header h1 {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: 'Oxygen', sans-serif;
 }
 
-#signIn span a{
-    text-decoration: none;
+.signUp {
+    text-align: center;
+    line-height: 2em;
+}
+
+.signUp a {
     color: darkgray;
 }
-
