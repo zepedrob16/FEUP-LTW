@@ -1,1 +1,1 @@
-insert into users(username, password) values('penios', 1);
+insert into users(username, password) values('Aasf', 1);
