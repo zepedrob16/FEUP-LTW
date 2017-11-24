@@ -1,12 +1,13 @@
 <?php
 
-    include_once('includes/init.php');
-    
+include_once('includes/init.php');
+include_once('databases/user.php');
 
-    $db = new PDO('sqlite:database.db');
+if (new_account($_POST['username'], $_POST['password'])) {
+	$message = "Account created";
+	echo "<script type='text/javascript'>alert('$message');</script>";
 
-    $stmt = $db->prepare('SELECT * FROM users');
-    $stmt->execute();
-    $articles = $stmt->fetchAll();
-
-    ?>-
+	header('Location: mainPage.html');
+	exit;
+}
+?>
