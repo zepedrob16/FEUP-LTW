@@ -1,52 +1,35 @@
 body {
-    background-color: #edeff0;
-
+    width: 70em;
     margin: 0 auto;
-    width: 60em;
-
-    font-family: 'Oxygen', sans-serif;
-
-}
-
-.grid {
     display: grid;
-    grid-template-columns: [start] auto [middle] auto [end];
-    grid-template-rows: [start] auto [middle] auto [end];
+    font-family: 'Oxygen', sans-serif;
+    background-color: #d3d3d3;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+        "header     header"
+        "menu       menu"
+        "signup     signup"
+        "categories main"
+        "footer     footer";
 }
 
-.title {
-    grid-column: start/end;
-    grid-row: start/middle;
-    background-color: red;
-}
-
-.content {
-    grid-column: middle/end;
-    grid-row: middle/end;
-    background-color: blue;
-}
-
-.test{
-    grid-column: start/middle;
-    grid-row: middle/end;
-    background-color: green;
-}
-
-header {
-    /*background-color: white;*/
+body > header {
+    background-color: white;
     padding-top: 1em;
     padding-left: 1em;
     padding-bottom: 1em;
+    grid-area: header;
 }
 
-header img {
+body > header img {
     height: 30px;
     width: 30px;
     display: inline-block;
     vertical-align: middle;
 }
 
-header h1 {
+body > header h1 {
+    text-decoration: none;
     display: inline-block;
     vertical-align: middle;
     font-family: 'Unica One', cursive;
@@ -54,9 +37,33 @@ header h1 {
     color: black;
 }
 
-#signIn {
-    /*background-color: white;*/
-    padding-top: 5em;
+body > header h2 {
+    padding-left: 1em;
+    text-decoration: none;
+    vertical-align: middle;
+    font-family: 'Unica One', cursive;
+    margin: 0px;
+    color: black;
+    line-height: 0.2em;
+    font-size: 1em;
+}
+
+body > header span{
+    float: right;
+}
+
+.content {
+    grid-area: menu;
+    background-color: white;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    text-align: center;
+    line-height: 2em;
+}
+
+.signUp {
+    grid-area: signup;
+    background-color: white;
     padding-bottom: 3em;
     text-align: center;
     line-height: 2em;
@@ -103,28 +110,10 @@ header h1 {
     background-color: #4CAF70;
 }
 
-.signUp {
-    /*background-color: white;*/
-    padding-bottom: 29vh;
-    text-align: center;
-    line-height: 2em;
+.signUp span{
+    display: block;
 }
 
-.signUp a {
+.signUp a{
     color: darkgray;
-}
-
-/* MainPage.html */
-
-#mainPage {
-    line-height: 0.5em;
-}
-
-header h2 {
-    font-size: 1em;
-}
-
-#logOut {
-    padding: 5em;
-    text-align: right;
 }
