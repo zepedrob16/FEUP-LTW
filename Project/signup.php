@@ -1,12 +1,8 @@
 <?php
 
-    include_once('includes/init.php');
-    
+  include_once('includes/init.php');
+  include_once('database/user.php');
 
-    $db = new PDO('sqlite:database.db');
+   new_account($_POST['username'], $_POST['password']);
 
-    $stmt = $db->prepare('SELECT * FROM users');
-    $stmt->execute();
-    $articles = $stmt->fetchAll();
-
-    ?>-
+?>
