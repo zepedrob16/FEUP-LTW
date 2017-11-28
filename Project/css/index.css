@@ -1,23 +1,35 @@
+html{
+    background-color: #d3d3d3;
+    height: 100%;
+}
+
 body {
-    width: 70em;
+    width: 60em;
+    height:100%;
     margin: 0 auto;
     display: grid;
     font-family: 'Oxygen', sans-serif;
-    background-color: #d3d3d3;
+    background-color: white;
     grid-template-columns: 1fr 3fr;
     grid-template-areas: 
         "header     header"
-        "menu       menu"
-        "signup     signup"
         "categories main"
         "footer     footer";
 }
 
-body > header {
-    background-color: white;
+body > #mainHeader {
     padding-top: 1em;
     padding-left: 1em;
-    padding-bottom: 1em;
+    box-shadow:  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 70px;
+    grid-area: header;
+}
+
+body > header {
+    padding-top: 1em;
+    padding-left: 1em;
+    box-shadow:  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 50px;
     grid-area: header;
 }
 
@@ -48,25 +60,53 @@ body > header h2 {
     font-size: 1em;
 }
 
-body > header span{
+body > header #logOut{
     float: right;
+    position: relative;
+    bottom: 27.5px;
+    padding-right: 1.5em;   
+}
+
+body > header #logOut:hover {
+    font-weight: 700;
+}
+
+body > header #logOut a{
+    text-decoration: none;
+    color: black;
 }
 
 .content {
-    grid-area: menu;
-    background-color: white;
+    grid-area: header;
     padding-top: 3em;
     padding-bottom: 3em;
     text-align: center;
     line-height: 2em;
+    position: relative;
+    top: 145px;
+}
+
+.listsDisplay {
+    grid-area: main;
+    padding-bottom: 3em;
+    line-height: 2em;
+}
+
+.categories {
+    grid-area: categories;
+}
+
+footer {
+    grid-area: footer;
 }
 
 .signUp {
-    grid-area: signup;
-    background-color: white;
+    grid-area: header;
     padding-bottom: 3em;
     text-align: center;
     line-height: 2em;
+    position: relative;
+    top: 465px;
 }
 
 #signIn form {
@@ -75,6 +115,10 @@ body > header span{
 
 #signIn label {
     padding-right: 2em;
+}
+
+#signIn form div{
+    display: block;
 }
 
 #signIn form #username {
@@ -107,7 +151,7 @@ body > header span{
 }
 
 #signIn form #submit:hover {
-    background-color: #4CAF70;
+    background-color: #4CAF65;
 }
 
 .signUp span{

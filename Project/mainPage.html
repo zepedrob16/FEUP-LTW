@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title> List Maker Lite </title>
+        <meta charset="utf-8" />
+        <script src="script.js" defer></script>
+        <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+    <body>
+        <header id="mainHeader">
+            <img src="resources/icon.png" />
+            <a href="mainPage.html"><h1>LIST MAKER</h1></a>
+            <a href="mainPage.html"><h2>Stay Focused</h2></a>
+            <span id="logOut">
+                <a href="index.html">Log out</a>
+            </span>
+        </header>
+        
+        <div class="categories">
+            <nav>
+                <ul>
+                    <li><a href="mainPage.html">Profile</a></li>
+                    <li><a href="mainPage.html">Your Lists</a></li>
+                </ul>
+            </nav>
 
-<head>
-    <title> List Maker Lite </title>
-    <meta charset="utf-8" />
-    <script src="script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+             <aside>
+            <!-- Listas -->
+            </aside>
+        </div>
 
-<body>
+        <div class="listsDisplay">
+            <input id="todo_add_button" type="button" value="Add a list..."/>
+            <form id="list_adder" onsubmit="return false;">
+            </form>
 
-    <header>
-        <img src="icon.png" />
-        <a href="mainPage.html"><h1>List Maker</h1></a>
-        <a href="mainPage.html"><h2>The easiest way to manage your daily tasks!</h2></a>
+            <section>
+            <!-- ícones de edit e trash -->
+            </section>
+        </div>
 
-        <span id="logOut">
-            <a href="index.html">Log out</a>
-        </span>
-    </header>
-
-    <nav id="menu">
-        <ul>
-            <li><a href="mainPage.html">Profile</a></li>
-            <li><a href="mainPage.html">Your Lists</a></li>
-        </ul>
-    </nav>
-
-    <input id="todo_add_button" type="button" value="Add a list...">
-    <form id="list_adder" onsubmit="return false;">
-    </form>
-
-    <section>
-        <!-- ícones de edit e trash -->
-    </section>
-
-    <aside>
-        <!-- Listas -->
-    </aside>
-
-    <footer>
-        © 2017
-    </footer>
-
-</body>
-
-
+        <footer>
+            © 2017
+        </footer>
+    </body>
 </html>
