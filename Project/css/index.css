@@ -10,11 +10,16 @@ body {
     display: grid;
     font-family: 'Oxygen', sans-serif;
     background-color: white;
-    grid-template-columns: 1fr 2fr;
+    /*grid-template-columns: 1fr 2fr;
     grid-template-areas: 
         "header     header"
         "categories main"
-        "footer     footer";
+        "footer     footer";*/
+ grid-template-areas: "header header"
+                       "categories  main"
+                       "footer  footer";
+  grid-template-rows: 70px 1fr 30px;
+  grid-template-columns: 1fr 2fr;
 }
 
 body > header {
@@ -102,8 +107,19 @@ body > header #logOut a{
 
 .listsDisplay {
     grid-area: main;
+    padding-top: 2em;
     padding-bottom: 3em;
     line-height: 2em;
+    text-align: center;
+}
+
+.listsDisplay #todo_add_button {
+    width:50%;
+    background-color: #d3d3d3;
+    border: none;
+    color: black;
+    padding: 0.5em;
+    border-radius: 4px;
 }
 
 .categories {
