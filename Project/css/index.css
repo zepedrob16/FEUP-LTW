@@ -10,16 +10,12 @@ body {
     display: grid;
     font-family: 'Oxygen', sans-serif;
     background-color: white;
-    /*grid-template-columns: 1fr 2fr;
-    grid-template-areas: 
-        "header     header"
-        "categories main"
-        "footer     footer";*/
- grid-template-areas: "header header"
-                       "categories  main"
-                       "footer  footer";
-  grid-template-rows: 70px 1fr 30px;
-  grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+     "header      header"
+     "categories  main"
+     "footer      footer";
 }
 
 body > header {
@@ -30,6 +26,7 @@ body > header {
 }
 
 body > header img {
+    padding-top: 0.55em;
     height: 30px;
     width: 30px;
     display: inline-block;
@@ -37,6 +34,7 @@ body > header img {
 }
 
 body > header h1 {
+    padding-top: 0.35em;
     text-decoration: none;
     display: inline-block;
     vertical-align: middle;
@@ -45,31 +43,56 @@ body > header h1 {
     color: black;
 }
 
-body > header h2 {
-    padding-left: 1em;
-    text-decoration: none;
-    vertical-align: middle;
-    font-family: 'Unica One', cursive;
-    margin: 0px;
-    color: black;
-    line-height: 0.2em;
-    font-size: 1em;
+body > header > span {
+    display: inline-block;
 }
 
-body > header #logOut{
+body > header #headerMenu{
     float: right;
-    position: relative;
-    bottom: 27.5px;
-    padding-right: 1.5em;   
+    padding-right: 2em;
+    padding-top: 1em;
 }
 
-body > header #logOut:hover {
+body > header #headerMenu a:hover {
     font-weight: 700;
 }
 
-body > header #logOut a{
+body > header #headerMenu a{
     text-decoration: none;
     color: black;
+}
+
+body > header #headerMenu a:first-child{
+    padding-right: 1em;
+    border-right: solid 1px black;
+}
+
+body > header #headerMenu a:nth-child(2){
+    padding-left: 1em;
+}
+
+body > header #searchBox{
+    float:right;
+    padding-right: 1em;
+}
+
+body > header #searchBox #filter{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+body > header #searchBox #filtersubmit {
+    position: relative;
+    z-index: 1;
+    left: -30px;
+    top: 1px;
+    color: #7B7B7B;
+    cursor:pointer;
+    width: 0;
 }
 
 .content {
@@ -105,15 +128,7 @@ body > header #logOut a{
     color: #808080;
 }
 
-.listsDisplay {
-    grid-area: main;
-    padding-top: 2em;
-    padding-bottom: 3em;
-    line-height: 2em;
-    text-align: center;
-}
-
-.listsDisplay #todo_add_button {
+.content #todo_add_button {
     width:50%;
     background-color: #d3d3d3;
     border: none;

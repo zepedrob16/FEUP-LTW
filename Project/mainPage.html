@@ -6,15 +6,24 @@
         <script src="script.js" defer></script>
         <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
         <header id="mainHeader">
-            <img src="resources/icon.png" />
-            <a href="mainPage.html"><h1>LIST MAKER</h1></a>
-            <a href="mainPage.html"><h2>Stay Focused</h2></a>
-            <span id="logOut">
+            <span>
+                <img src="resources/icon.png" />
+                <a href="mainPage.html"><h1>LIST MAKER</h1></a>
+            </span>
+
+            <span id="headerMenu">
+                <a href="profile.html">Profile</a>
                 <a href="index.html">Log out</a>
+            </span>
+
+            <span id="searchBox">
+                <input id="filter" type="text" placeholder="Search" />
+                <i id="filtersubmit" class="fa fa-search"></i>
             </span>
         </header>
         
@@ -25,22 +34,18 @@
                     <li><a href="mainPage.html">Your Lists</a></li>
                 </ul>
             </nav>
-
-             <aside>
-            <!-- Listas -->
+            <aside>
+                <!-- Listas -->
             </aside>
         </div>
-
-        <div class="listsDisplay">
+        <div class="content">
             <button id="todo_add_button" type="submit" value="Add a list..."><img src="resources/add_b2.png"></button>
             <form id="list_adder" onsubmit="return false;">
             </form>
-
             <section>
-            <!-- ícones de edit e trash -->
+                <!-- ícones de edit e trash -->
             </section>
         </div>
-
         <footer>
             © 2017
         </footer>
