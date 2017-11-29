@@ -21,16 +21,19 @@ body {
 body > header {
     padding-top: 1em;
     padding-left: 1em;
+    background-color: #003333;
     /*box-shadow:  0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     grid-area: header;
+    padding-bottom: 1em;
 }
 
-body > header img {
-    padding-top: 0.55em;
-    height: 30px;
-    width: 30px;
+body > header #title i {
+    padding-top: 0.4em;
     display: inline-block;
     vertical-align: middle;
+    color: white;
+    font-size: 2.3em;
+    padding-right: 0.3em;
 }
 
 body > header h1 {
@@ -40,7 +43,7 @@ body > header h1 {
     vertical-align: middle;
     font-family: 'Unica One', cursive;
     margin: 0px;
-    color: black;
+    color: white;
 }
 
 body > header > span {
@@ -59,12 +62,12 @@ body > header #headerMenu a:hover {
 
 body > header #headerMenu a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 body > header #headerMenu a:first-child{
     padding-right: 1em;
-    border-right: solid 1px black;
+    border-right: solid 1px white;
 }
 
 body > header #headerMenu a:nth-child(2){
@@ -142,7 +145,10 @@ body > header #searchBox #filtersubmit {
 }
 
 footer {
+    background-color: #003333;
     grid-area: footer;
+    color: white;
+    padding-left: 1em;
 }
 
 #signIn form {
