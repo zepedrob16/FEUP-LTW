@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="css/index.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -17,16 +17,18 @@
             </span>
         </header>
 
-        <div id="signInImg">
-            <img src="resources/meme.jpg" />
-        </div>
-
         <div class="content">
             <div id="signIn">
                 <form action="sign_in.php" method="post">
                     <div>Insert your credentials </div>
-                    <div> <input type="text" name="username" id="username" placeholder="Username..."> </div>
-                    <div> <input type="password" name="password" id="password" placeholder="Password..."> </div>
+                    <div> 
+                        <i class="fa fa-user-circle-o" id="userIcon" aria-hidden="true"></i>
+                        <input type="text" name="username" id="username" placeholder="Username..."> 
+                    </div>
+                    <div>
+                        <i class="fa fa-lock" id="lockIcon" aria-hidden="true"></i> 
+                        <input type="password" name="password" id="password" placeholder="Password...">
+                     </div>
                     <div> <input type="submit" id="submit" value="Submit"> </div>
                 </form>
             </div>
@@ -40,5 +42,9 @@
                 </span>
             </div>
         </div>
+
+        <footer>
+            © 2017
+        </footer>
     </body>
 </html>
