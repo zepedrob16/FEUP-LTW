@@ -152,7 +152,7 @@ footer {
     display: block;
 }
 
-#signIn form #username {
+#signIn form #inputVar {
     padding: 12px 27px;
     margin: 8px 0;
     display: inline-block;
@@ -167,15 +167,6 @@ footer {
     left: 12px;
     color: #7B7B7B;
     width: 0;
-}
-
-#signIn form #password {
-    padding: 12px 27px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
 #signIn form #lockIcon {
