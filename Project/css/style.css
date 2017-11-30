@@ -177,6 +177,14 @@ footer {
     width: 0;
 }
 
+#signIn form #lockIcon {
+    position: relative;
+    z-index: 1;
+    left: 15px;
+    color: #7B7B7B;
+    width: 0;
+}
+
 #signIn form #submit {
     background-color: #4CAF50;
     color: white;
