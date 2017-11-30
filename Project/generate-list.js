@@ -1,27 +1,21 @@
 let todo_add_button = document.getElementById('todo_add_button');
-let todo_specs = document.getElementById('list_adder');
+let post_it = document.getElementById('list_adder');
 let todo_title = document.createElement('input');
 
-// When the ENTER key is pressed, a new bulletpoint's created.
 let keydown_title_listener = function(event) {
 	
 	if (event.keyCode == 13) {
 		bullet_factory();
 		document.getElementById('item').focus();
-
 		todo_title.removeEventListener('keydown', keydown_title_listener, false);
 	}
 }
 
-/**
-	Event listener for when the 'Add a list...' box is clicked.
-	Adds a new description.
-**/
 todo_add_button.addEventListener('click', (event) => {
 
 	// Reset the to-do list by deleting the title and every bullet.
-	while (todo_specs.firstChild)
-		todo_specs.removeChild(todo_specs.firstChild);
+	while (post_it.firstChild)
+		post_it.removeChild(post_it.firstChild);
 
 	// Creates a new title element.
 	let new_todo_title = document.createElement('input');
@@ -31,24 +25,36 @@ todo_add_button.addEventListener('click', (event) => {
 
 	new_todo_title.addEventListener('keydown', keydown_title_listener, false);
 
-	todo_specs.append(new_todo_title);
+	post_it.append(new_todo_title);
 	new_todo_title.focus();
 	todo_title = new_todo_title;
+
+	// Creates a DONE button.
+	let save_button = document.createElement('button');
+	save_button.setAttribute('id', 'save_button');
+	save_button.setAttribute('type', 'submit');
+	save_button.innerHTML = "Done";
+	post_it.appendChild(save_button);
 });
 
 /* Creates a new bullet point element. */
 function bullet_factory() {	
 	let bullet = document.createElement('input');
-
+	
 	bullet.setAttribute('id', 'item');
 	bullet.setAttribute('type', 'text');
 	bullet.setAttribute('placeholder', 'Item');
 
 	bullet.addEventListener('keydown', (event) => {
 
-		// A new bulletpoint is created when ENTER's clicked on it.
-		if (event.keyCode == 13)
-			bullet_factory(); // This recursive call surprisingly works.
+		// Creates a new bulletpoint if user presses ENTER and isn't behind other bulletpoints.
+		if (event.keyCode == 13) {
+
+			if (bullet.nextSibling == null) 
+				bullet_factory(); // This recursive call surprisingly works.
+			else 
+				bullet.nextSibling.focus(); // If it's behind bulletpoints, focus next.
+		}
 
 		// The current bulletpoint's deleted when end of input is reached.
 		else if (event.keyCode == 8 && bullet.value.length == 0) {
@@ -56,14 +62,18 @@ function bullet_factory() {
 			bullet.remove();
 
 			let prev_list_item = document.querySelector('#list_adder > input:last-child');
-			prev_list_item.focus();
-
-			if (prev_list_item == document.getElementById('title')) // Adds listener to title if backspace brings user from item to it.
+			
+			// Adds listener to title if backspace brings user from item to it.
+			if (prev_list_item == null) {
 				todo_title.addEventListener('keydown', keydown_title_listener, false);
+				todo_title.focus();
+			}
+			else if (prev_list_item.id == 'item')
+				prev_list_item.focus();
 		}
 
 	});
 
-	todo_specs.append(bullet);
+	post_it.append(bullet);
 	bullet.focus();
 } 
