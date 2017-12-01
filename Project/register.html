@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title> List Maker Lite </title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="css/style.css" rel="stylesheet">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script>
-		$( function() {
-		$( "#datepicker" ).datepicker();
-		} );
-		</script>
 	</head>
 	<body>
 		<header>
@@ -29,22 +21,22 @@
 				<form action="sign_in.php" method="post">
 					<div>Insert your credentials </div>
 					<div>
-						<input type="text" name="firstName" id="inputVar" placeholder="First Name...">
-						<input type="text" name="lastName" id="inputVar" placeholder="Last Name...">
+						<input type="text" name="firstName" id="inputVar" placeholder="First Name..." required>
+						<input type="text" name="lastName" id="inputVar" placeholder="Last Name..." required>
 					</div>
+					<!--<div>
+						<input type="text" name="date" id="datepicker" placeholder="Month..." required>
+					</div>-->
 					<div>
-						<input type="text" id="datepicker" placeholder="Date of Birth...">
-					</div>
-					<div>
-						<input type="email" name="email" id="inputVar" placeholder="E-mail...">
+						<input type="email" name="email" id="inputVar" placeholder="E-mail..." required>
 					</div>
 					<div>
 						<i class="fa fa-user-circle-o" id="userIcon" aria-hidden="true"></i>
-						<input type="text" name="username" id="inputVar" placeholder="Username...">
+						<input type="text" name="username" id="inputVar" placeholder="Username..." required>
 					</div>
 					<div>
 						<i class="fa fa-lock" id="lockIcon" aria-hidden="true"></i>
-						<input type="password" name="password" id="inputVar" placeholder="Password...">
+						<input type="password" name="password" id="inputVar" placeholder="Password..." required>
 					</div>
 					<div> <input type="submit" id="submit" value="Submit"> </div>
 				</form>
