@@ -108,7 +108,7 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
-/*----------------LIST HANDLING------------------*/
+/*----------------MAIN CONTENT HANDLING------------------*/
 
 /*General positioning*/
 .content {
@@ -204,19 +204,44 @@ body > header #searchBox #filtersubmit {
     border-radius: 4px;
 }
 
-/*---------------------FILTERS HANDLING----------------*/
-.categories {
-    grid-area: categories;
+.content #profilePic{
+    position: relative;
+    bottom: 80px;
+    padding:1px;
+    border:1px solid #003333;
+    float: left;
+    margin-left: 1em;
 }
 
-.categories{
-    padding-left: 3em;
-    padding-top: 1.5em;
+/*---------------------ASIDE HANDLING----------------*/
+.categories {
+    grid-area: categories;
+    padding-left: 2.5em;
 }
 
 .categories p{
     font-size: 1.3em;
     font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.categories #settings{
+    padding-left: 1em;
+}
+
+.categories #settingsIcon {
+    position: relative;
+    z-index: 1;
+    top: 44px;
+    width: 0;
+}
+
+.categories a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    line-height: 2em;
+    padding-left: 2em;
 }
 
 .filters {
