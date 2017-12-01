@@ -1,9 +1,9 @@
 <?php
 
-function new_account($username, $password) {
+function new_account($username, $password, $firstName, $lastName, $email) {
 	global $dbh;
-    $stmt = $dbh->prepare('INSERT INTO users (username, password) VALUES (? , ?)');
-    return $stmt->execute(array($username, $password));
+    $stmt = $dbh->prepare('INSERT INTO users (username, password, email, name) VALUES (? , ?, ?, ?)');
+    return $stmt->execute(array($username, $password, $email, $firstName . " " . $lastName));
 }
 function is_login_correct($username, $password) {
 	global $dbh;

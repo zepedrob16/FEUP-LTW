@@ -5,7 +5,10 @@ drop table if exists bulletPoint;
 
 CREATE TABLE users (
 	username VARCHAR PRIMARY KEY,
-	password VARCHAR
+	password VARCHAR,
+	email VARCHAR,
+	name VARCHAR
+
 );
 
 CREATE TABLE lists(
