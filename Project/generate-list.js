@@ -13,6 +13,9 @@ let keydown_title_listener = function(event) {
 
 todo_add_button.addEventListener('click', (event) => {
 
+	// Hides the button and only shows the title.
+	todo_add_button.style.display = 'none';
+
 	// Reset the to-do list by deleting the title and every bullet.
 	while (post_it.firstChild)
 		post_it.removeChild(post_it.firstChild);
@@ -35,6 +38,32 @@ todo_add_button.addEventListener('click', (event) => {
 	save_button.setAttribute('type', 'submit');
 	save_button.innerHTML = "Done";
 	post_it.appendChild(save_button);
+
+	// Creates a HASHTAG input.
+	let hashtags_input = document.createElement('input');
+	hashtags_input.setAttribute('id', 'hashtags');
+	hashtags_input.setAttribute('type', 'text');
+	hashtags_input.setAttribute('placeholder', 'Add tags...');
+
+	hashtags_input.addEventListener('keydown', (event) => {
+		
+		if (event.keyCode == 188) {
+			event.preventDefault();
+			console.log(hashtags_input.value);
+
+			let hashtag = document.createElement('div');
+			hashtag.innerHTML = hashtags_input.value;
+			post_it.appendChild(hashtag);
+
+			hashtags_input.value = ""; // Clear input from the hashtag input.
+		}
+
+	});
+
+	post_it.appendChild(hashtags_input);
+
+
+
 });
 
 /* Creates a new bullet point element. */
