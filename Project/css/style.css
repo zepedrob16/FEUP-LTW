@@ -118,6 +118,7 @@ body > header #searchBox #filtersubmit {
     text-align: center;
     line-height: 2em;
     border-left: dotted 2px #808080;
+    background-color: white;
 }
 
 /*Sign in page positioning and coloring*/
@@ -217,6 +218,7 @@ body > header #searchBox #filtersubmit {
 .categories {
     grid-area: categories;
     padding-left: 2.5em;
+    background-color: white;
 }
 
 .categories p{
