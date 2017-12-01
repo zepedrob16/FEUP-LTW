@@ -18,6 +18,9 @@ body {
      "footer      footer";
 }
 
+/*-----------------HEADER HANDLING---------------------*/
+
+/*General coloring and positioning*/
 body > header {
     padding-top: 1em;
     padding-left: 1em;
@@ -27,6 +30,12 @@ body > header {
     padding-bottom: 1.5em;
 }
 
+/*Different element positioning*/
+body > header > span {
+    display: inline-block;
+}
+
+/*Website's logo*/
 body > header #title i {
     padding-top: 0.4em;
     display: inline-block;
@@ -36,6 +45,7 @@ body > header #title i {
     padding-right: 0.3em;
 }
 
+/*Website's title*/
 body > header h1 {
     padding-top: 0.35em;
     text-decoration: none;
@@ -46,10 +56,7 @@ body > header h1 {
     color: white;
 }
 
-body > header > span {
-    display: inline-block;
-}
-
+/*Profile and logout buttons*/
 body > header #headerMenu{
     float: right;
     padding-right: 2em;
@@ -74,11 +81,13 @@ body > header #headerMenu a:nth-child(2){
     padding-left: 1em;
 }
 
+/*Search button*/
 body > header #searchBox{
     float:right;
     padding-right: 1em;
 }
 
+/*Search box positioning and appearance*/
 body > header #searchBox #filter{
     padding: 8px 10px;
     margin: 8px 0;
@@ -88,6 +97,7 @@ body > header #searchBox #filter{
     box-sizing: border-box;
 }
 
+/*Search box icon positioning and appearance*/
 body > header #searchBox #filtersubmit {
     position: relative;
     z-index: 1;
@@ -98,6 +108,9 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
+/*----------------LIST HANDLING------------------*/
+
+/*General positioning*/
 .content {
     grid-area: main;
     padding-top: 6em;
@@ -107,10 +120,7 @@ body > header #searchBox #filtersubmit {
     border-left: dotted 2px #808080;
 }
 
-.content #signUp{
-    padding-top: 1em;
-}
-
+/*Sign in page positioning and coloring*/
 .content span{
     display: block;
 }
@@ -118,26 +128,6 @@ body > header #searchBox #filtersubmit {
 .content span a{
     text-decoration: none;
     color: #808080;
-}
-
-.content #todo_add_button {
-    width:50%;
-    background-color: #d3d3d3;
-    border: none;
-    color: black;
-    padding: 0.5em;
-    border-radius: 4px;
-}
-
-.categories {
-    grid-area: categories;
-}
-
-footer {
-    background-color: #003333;
-    grid-area: footer;
-    color: white;
-    padding-left: 1em;
 }
 
 #signIn form {
@@ -200,12 +190,23 @@ footer {
     background-color: #4CAF65;
 }
 
-.signUp span{
-    display: block;
+.content #signUp{
+    padding-top: 1em;
 }
 
-.signUp a{
-    color: darkgray;
+/*Add a list button*/
+.content #todo_add_button {
+    width:50%;
+    background-color: #d3d3d3;
+    border: none;
+    color: black;
+    padding: 0.5em;
+    border-radius: 4px;
+}
+
+/*---------------------FILTERS HANDLING----------------*/
+.categories {
+    grid-area: categories;
 }
 
 .categories{
@@ -280,4 +281,11 @@ footer {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+footer {
+    background-color: #003333;
+    grid-area: footer;
+    color: white;
+    padding-left: 1em;
 }
