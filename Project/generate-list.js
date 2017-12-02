@@ -22,6 +22,7 @@ todo_add_button.addEventListener('click', (event) => {
 
 	// Creates a new title element.
 	let new_todo_title = document.createElement('input');
+	new_todo_title.setAttribute('class', 'content');
 	new_todo_title.setAttribute('id', 'title');
 	new_todo_title.setAttribute('type', 'text');
 	new_todo_title.setAttribute('placeholder', 'Title');
@@ -41,6 +42,7 @@ todo_add_button.addEventListener('click', (event) => {
 
 	// Creates a HASHTAG input.
 	let hashtags_input = document.createElement('input');
+	hashtags_input.setAttribute('class', 'content');
 	hashtags_input.setAttribute('id', 'hashtags');
 	hashtags_input.setAttribute('type', 'text');
 	hashtags_input.setAttribute('placeholder', 'Add tags...');
@@ -52,6 +54,7 @@ todo_add_button.addEventListener('click', (event) => {
 			console.log(hashtags_input.value);
 
 			let hashtag = document.createElement('div');
+			hashtag.setAttribute('id', 'hastag_list');
 			hashtag.innerHTML = hashtags_input.value;
 			post_it.appendChild(hashtag);
 

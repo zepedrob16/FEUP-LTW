@@ -113,7 +113,7 @@ body > header #searchBox #filtersubmit {
 /*General positioning*/
 .content {
     grid-area: main;
-    padding-top: 6em;
+    padding-top: 2em;
     padding-bottom: 3em;
     text-align: center;
     line-height: 2em;
@@ -195,19 +195,64 @@ body > header #searchBox #filtersubmit {
     padding-top: 1em;
 }
 
+.content #title{
+    width: 75%;
+    padding: 0.5em;
+    margin: 8px 0;
+    border: 1px solid #003333;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.content #save_button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.content #save_button:hover {
+    background-color: #4CAF65;
+}
+
+.content #hashtags{
+    width:15%;
+    padding: 0.2em;
+    border: 1px solid #003333;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+#hastag_list{
+    display: inline-block;
+    background-color: #003333;
+    color: white;
+    font-size: 0.7em;
+    padding: 3px;
+    margin: 3px;
+}
+
+#hastag_list::before{
+    content: '#';
+}
+
 /*Add a list button*/
 .content #todo_add_button {
-    width:50%;
-    background-color: #d3d3d3;
-    border: none;
-    color: black;
+     width: 75%;
     padding: 0.5em;
+    margin: 8px 0;
+    border: 1px solid #003333;
     border-radius: 4px;
+    cursor: pointer;
+    background-color: #eee;
 }
 
 .content #profilePic{
     position: relative;
-    bottom: 80px;
     padding:1px;
     border:1px solid #003333;
     float: left;
