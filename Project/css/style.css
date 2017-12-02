@@ -195,6 +195,17 @@ body > header #searchBox #filtersubmit {
     padding-top: 1em;
 }
 
+#list_adder{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 85%;
+    height: 85%;
+    background-color: red;
+    margin: 0 auto;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
 .content #title{
     width: 75%;
     padding: 0.5em;
