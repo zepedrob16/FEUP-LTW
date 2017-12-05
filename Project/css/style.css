@@ -401,3 +401,9 @@ footer {
     color: white;
     padding-left: 1em;
 }
+
+footer span{
+    float: right;
+    font-size: 0.7em;
+    padding-right: 1em;
+}
