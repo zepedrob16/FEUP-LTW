@@ -8,6 +8,13 @@
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/style.css" rel="stylesheet">
+
+        <?php
+        include_once('includes/init.php');
+        include_once('databases/user.php');
+        include_once('includes/session.php');
+        ?>
+
     </head>
     <body>
         <header id="mainHeader">
@@ -35,9 +42,24 @@
         <div class="content">
             <div id="info">
                 <img id="profilePic" style="vertical-align:middle" src="resources/bust_a_telmo.jpg" height="200">
-                <span>Name: Penios Erectus</span>
-                <span>Username: bustanut</span>
-                <span>E-mail: up201504614@fe.up.pt</span>
+                <span>
+                   <?php
+                        include_once("profile_functions.php");
+                        get_name($_SESSION['username']);
+                   ?>
+                </span>
+                <span>
+                    <?php 
+                        include_once("profile_functions.php");
+                        get_username($_SESSION['username']);
+                    ?>
+                </span>
+                <span>
+                    <?php 
+                        include_once("profile_functions.php");
+                        get_email($_SESSION['username']);
+                    ?>
+                </span>
             </div>
         </div>
         <footer>
