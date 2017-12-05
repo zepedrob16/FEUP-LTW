@@ -42,14 +42,10 @@
             <div id="info">
                 <img id="profilePic" style="vertical-align:middle" src="resources/bust_a_telmo.jpg" height="200">
                 <span>
-                    <?php 
-                    global $dbh;
-                    $stmt = $dbh->prepare("SELECT name FROM users");
-                    $stmt->execute();   
-                    $array_info = $stmt->fetch();
-                    $string_version = implode(',', $array_info);
-                    echo $string_version;
-                ?>
+                   <?php
+                    include_once("profile_functions.php");
+                    get_name();
+                   ?>
                 </span>
                 <span>
                     <?php 
