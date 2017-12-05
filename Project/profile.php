@@ -12,6 +12,7 @@
         <?php
         include_once('includes/init.php');
         include_once('databases/user.php');
+        include_once('includes/session.php');
         ?>
 
     </head>
@@ -43,29 +44,22 @@
                 <img id="profilePic" style="vertical-align:middle" src="resources/bust_a_telmo.jpg" height="200">
                 <span>
                    <?php
-                    include_once("profile_functions.php");
-                    get_name();
+                        include_once("profile_functions.php");
+                        get_name($_SESSION['username']);
                    ?>
                 </span>
                 <span>
                     <?php 
-                    global $dbh;
-                    $stmt = $dbh->prepare("SELECT username FROM users");
-                    $stmt->execute();   
-                    $array_info = $stmt->fetch();
-                    $string_version = implode(',', $array_info);
-                    echo "Username: " . $string_version;
-                ?>
+                        include_once("profile_functions.php");
+                        get_username($_SESSION['username']);
+                    ?>
                 </span>
                 <span>
                     <?php 
-                    global $dbh;
-                    $stmt = $dbh->prepare("SELECT email FROM users");
-                    $stmt->execute();   
-                    $array_info = $stmt->fetch();
-                    $string_version = implode(',', $array_info);
-                    echo "Email: " . $string_version;
-                ?></span>
+                        include_once("profile_functions.php");
+                        get_email($_SESSION['username']);
+                    ?>
+                </span>
             </div>
         </div>
         <footer>

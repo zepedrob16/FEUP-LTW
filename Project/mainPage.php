@@ -8,6 +8,10 @@
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/style.css" rel="stylesheet">
+
+        <?php
+            include_once('includes/session.php');
+        ?>
     </head>
     <body>
         <header id="mainHeader">
@@ -53,6 +57,7 @@
         </div>
         <footer>
             © 2017
+            <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
         </footer>
     </body>
 </html>
