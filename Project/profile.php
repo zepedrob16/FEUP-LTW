@@ -16,7 +16,7 @@
         ?>
 
     </head>
-    <body>
+    <body class="main">
         <header id="mainHeader">
             <span id="title">
                 <i class="fa fa-youtube" aria-hidden="true"></i>
