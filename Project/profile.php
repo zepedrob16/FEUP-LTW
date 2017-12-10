@@ -20,10 +20,10 @@
         <header id="mainHeader">
             <span id="title">
                 <i class="fa fa-youtube" aria-hidden="true"></i>
-                <a href="mainPage.html"><h1>LIST MAKER</h1></a>
+                <a href="editPage.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">
-                <a href="mainPage.html">Your Lists</a>
+                <a href="editPage.php">Your Lists</a>
                 <a href="index.html">Log out</a>
             </span>
         </header>
