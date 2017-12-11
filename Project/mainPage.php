@@ -61,6 +61,7 @@
                 ?>
             </div>
         </div>
+
         <footer>
             © 2017
             <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
