@@ -16,7 +16,7 @@
     <body class="main">
         <header id="mainHeader">
             <span id="title">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
+                <img src="resources/logo.png" width="50" />
                 <a href="editPage.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">

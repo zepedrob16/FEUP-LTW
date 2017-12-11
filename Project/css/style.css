@@ -62,9 +62,10 @@ body > header {
     padding-top: 1em;
     padding-left: 1em;
     background-color: #191039;
-    /*box-shadow:  0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    box-shadow:  0 6px 20px 0 black;
     grid-area: header;
     padding-bottom: 1.5em;
+    display: inline-block;
 }
 
 /*Different element positioning*/
@@ -73,18 +74,12 @@ body > header > span {
 }
 
 /*Website's logo*/
-body > header #title i {
-    padding-top: 0.4em;
-    display: inline-block;
-    vertical-align: middle;
-    color: white;
-    font-size: 2.3em;
-    padding-right: 0.3em;
+body > header #title img {
+    vertical-align:middle;
 }
 
 /*Website's title*/
 body > header h1 {
-    padding-top: 0.35em;
     text-decoration: none;
     display: inline-block;
     vertical-align: middle;
