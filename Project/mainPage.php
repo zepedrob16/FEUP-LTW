@@ -8,16 +8,15 @@
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/style.css" rel="stylesheet">
-
         <?php
-            include_once('includes/session.php');
+        include_once('includes/session.php');
         ?>
     </head>
     <body class="main">
         <header id="mainHeader">
             <span id="title">
                 <img src="resources/logo.png" width="50"/>
-                <a href="editPage.php"><h1>LIST MAKER</h1></a>
+                <a href="mainPage.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">
                 <a href="profile.php">Profile</a>
@@ -52,8 +51,13 @@
         </div>
         <div class="content">
             <button id="todo_add_button" type="submit" value="Add a list..."><img src="resources/add_b2.png"></button>
-            <form id="list_adder" onsubmit="return false;">
-            </form>
+            
+            <div id="lists">
+                <?php
+                include_once("profile_functions.php");
+                get_lists($_SESSION['username']);
+                ?>
+            </div>
         </div>
         <footer>
             © 2017

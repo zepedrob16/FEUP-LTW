@@ -28,4 +28,13 @@
         echo "Email: " . $string_version;
 	}
 
+  function get_lists($username) {
+    global $dbh;
+        $stmt = $dbh->prepare("SELECT * FROM lists WHERE username = ?");
+        $stmt->execute(array($username));   
+        $array_info = $stmt->fetch();
+        $string_version = implode(',', $array_info);
+        echo "Your Lists: " . $string_version;
+  }
+
 ?>

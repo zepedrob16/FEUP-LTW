@@ -34,27 +34,6 @@ html{
      "footer      footer";
 }
 
-@media (max-width: 60em) {
-  body {
-    width: 100%;
-    grid-template-columns: 4fr;
-    grid-template-areas:
-     "header"
-     "main"
-     "footer";
-  }
-
-  .content{
-    border: none;
-  }
-
-  .categories{
-    display: none;
-  }
-
-  
-}
-
 /*-----------------HEADER HANDLING---------------------*/
 
 /*General coloring and positioning*/
@@ -175,6 +154,11 @@ body > header #searchBox #filtersubmit {
     color: #808080;
 }
 
+.content #lists{
+    width: 30%;
+    background-color: #808080;
+}
+
 #signIn form {
     font-weight: bolder;
 }
@@ -212,10 +196,10 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
-#signIn form #lockIcon {
+#signIn form #emailIcon {
     position: relative;
     z-index: 1;
-    left: 15px;
+    left: 12px;
     color: #7B7B7B;
     width: 0;
 }
@@ -430,4 +414,52 @@ footer span{
     float: right;
     font-size: 0.8em;
     padding-right: 1em;
+}
+
+@media (max-width: 70em) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 520px) {
+
+    header{
+        margin-bottom: 1em;
+    }
+
+    header h1{
+        font-size: 1.5em;
+    }
+
+    header img{
+        width: 30px;
+    }
+
+    .content{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    #signIn form #inputVar {
+        width: 100%;
+        padding-left: 1em;
+    }
+
+    #signIn form #userIcon {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    #signIn form #lockIcon {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    #text{
+        font-size: 0.8em;
+        line-height: 1em;
+    }
 }

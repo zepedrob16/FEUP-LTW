@@ -12,14 +12,14 @@
     <body class="login">
         <header>
             <span id="title">
-                <img src="resources/logo.png" width="70" />
+                <img src="resources/logo.png" width="50" />
                 <a href="index.html"><h1>LIST MAKER</h1></a>
             </span>
         </header>
         <div class="content">
             <div id="signIn">
                 <form action="sign_in.php" method="post">
-                    <div>Insert your credentials </div>
+                    <div id="text">Insert your credentials </div>
                     <div>
                         <i class="fa fa-user-circle-o" id="userIcon" aria-hidden="true"></i>
                         <input type="text" name="username" id="inputVar" placeholder="Username...">
@@ -34,10 +34,10 @@
             
             <div id="signUp">
                 <span id="guest">
-                    <a href="editPage.php">Sign in as guest</a>
+                    <a href="mainPage.php" id="text">Sign in as guest</a>
                 </span>
                 <span id="noAccount">
-                    <a href="register.html">Don't have an account yet? Create one now!</a>
+                    <a href="register.html" id="text">Don't have an account yet? Create one now!</a>
                 </span>
             </div>
         </div>

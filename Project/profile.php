@@ -19,11 +19,11 @@
     <body class="main">
         <header id="mainHeader">
             <span id="title">
-                <img src="resources/logo.png" width="50" />
-                <a href="editPage.php"><h1>LIST MAKER</h1></a>
+                <img src="resources/logo.png" width="50"/>
+                <a href="profilePic.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">
-                <a href="editPage.php">Your Lists</a>
+                <a href="mainPage.php">Your Lists</a>
                 <a href="index.html">Log out</a>
             </span>
         </header>
