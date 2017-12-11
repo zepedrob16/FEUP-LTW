@@ -51,6 +51,8 @@
         </div>
         <div class="content">
             <button id="todo_add_button" type="submit" value="Add a list..."><img src="resources/add_b2.png"></button>
+            <form id="list_adder" onsubmit="return false;">
+            </form>
             
             <div id="lists">
                 <?php
