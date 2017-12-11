@@ -15,12 +15,11 @@
     <body class="main">
         <header id="mainHeader">
             <span id="title">
-                <img src="resources/logo.png" width="50"/>
+                <!--<img src="resources/logo.png" width="50"/>-->
                 <a href="mainPage.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">
-                <a href="profile.php">Profile</a>
-                <a href="index.html">Log out</a>
+                <button type="button"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> 
             </span>
             <span id="searchBox">
                 <input id="filter" type="text" placeholder="Search" />

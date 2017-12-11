@@ -40,7 +40,7 @@ html{
 /*General coloring and positioning*/
 body > header {
     background-color: #f7f7f7;
-    border-bottom: 2px solid #A9A9A9;
+    border-bottom: 1px solid #A9A9A9;
     grid-area: header;
     display: inline-block;
 }
@@ -57,6 +57,7 @@ body > header #title img {
 
 /*Website's title*/
 body > header h1 {
+    padding-left: 1em;
     text-decoration: none;
     display: inline-block;
     vertical-align: middle;
@@ -65,41 +66,42 @@ body > header h1 {
     color: #A9A9A9;
 }
 
-/*Profile and logout buttons*/
 body > header #headerMenu{
     float: right;
-    padding-right: 2em;
-    padding-top: 0.8em;
-}
-
-body > header #headerMenu a:hover {
-    font-weight: 700;
-}
-
-body > header #headerMenu a{
-    text-decoration: none;
-    color: white;
-}
-
-body > header #headerMenu a:first-child{
     padding-right: 1em;
-    border-right: solid 1px white;
+    padding-top: 0.3em;
 }
 
-body > header #headerMenu a:nth-child(2){
-    padding-left: 1em;
+body > header #headerMenu button{
+    border: none;
+    background-color: #f7f7f7;
+}
+
+body > header #headerMenu button:hover:before{
+    content: 'Settings';
+    color: #A9A9A9;
+    font-size: 1.1em;
+    font-weight: bolder;
+    position: relative;
+    bottom: 4.5px;
+    padding-right: 0.5em;
+}
+
+/*Settings buttons*/
+body > header #headerMenu button i{
+    color: #A9A9A9;
 }
 
 /*Search button*/
 body > header #searchBox{
     float:right;
-    padding-right: 1em;
+    padding-right: 0.55em;
 }
 
 /*Search box positioning and appearance*/
 body > header #searchBox #filter{
-    padding: 8px 10px;
-    margin: 8px 0;
+    padding: 3px 5px;
+    margin-top: 0.5em; 
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -407,7 +409,7 @@ body > header #searchBox #filtersubmit {
 
 footer {
     background-color: #f7f7f7;
-    border-top: 2px solid #A9A9A9;
+    border-top: 1px solid #A9A9A9;
     grid-area: footer;
     color: #A9A9A9;
     font-weight: bolder;
