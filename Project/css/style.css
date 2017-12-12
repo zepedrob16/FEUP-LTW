@@ -237,7 +237,7 @@ body > header #searchBox #filtersubmit {
     background-color: #eee;
 }
 
-.content #title{
+.content #list_title{
     width: 75%;
     padding: 0.5em;
     margin: 8px 0;

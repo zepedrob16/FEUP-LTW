@@ -3,7 +3,7 @@
     <head>
         <title> List Maker Lite </title>
         <meta charset="utf-8" />
-        <script src="generate-list.js" defer></script>
+        <script src="javascript/script.js" defer></script>
         <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,9 +43,23 @@
             </div>
 
             <div id="sortByFilter">
-                <button><p>Projects</p></button>
-                <button><p>Filters</p></button>
+                <button class="tab_link" onclick="switch_filter_tab(event, 'projects_tab_content')"><p>Projects</p></button>
+                <button class="tab_link" onclick="switch_filter_tab(event, 'filter_tab_content')"><p>Filters</p></button>
             </div>
+
+            <div id="projects_tab_content" class="tab_content">
+                <!-- Extract from database, obviously. These values are just for testing. -->
+                <p>Deep</p>
+                <p>Dark</p>
+                <p>Fantasies</p>
+            </div>
+
+            <div id="filter_tab_content" class="tab_content">
+                <!-- Extract from database, obviously. These values are just for testing. -->
+                <p>Mexican</p>
+                <p>Cuisine</p>
+            </div>
+
         </aside>
         <div class="content">
             <button id="todo_add_button" type="submit" value="Add a list..."><img src="resources/add_b2.png"></button>
