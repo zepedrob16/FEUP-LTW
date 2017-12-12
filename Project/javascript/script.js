@@ -2,12 +2,18 @@ let todo_add_button = document.getElementById('todo_add_button');
 let post_it = document.getElementById('list_adder');
 let todo_title = document.createElement('input');
 
+/* Listener for the title. */
 let keydown_title_listener = function(event) {
 	
 	if (event.keyCode == 13) {
-		bullet_factory();
-		document.getElementById('item').focus();
-		todo_title.removeEventListener('keydown', keydown_title_listener, false);
+		let first_item = document.getElementById('item'); // First element item sibling.
+
+		if (first_item == null) {
+			bullet_factory();
+			document.getElementById('item').focus();
+		}
+		else
+			first_item.focus();
 	}
 }
 
@@ -77,8 +83,8 @@ function bullet_factory() {
 
 		// Creates a new bulletpoint if user presses ENTER and isn't behind other bulletpoints.
 		if (event.keyCode == 13) {
-
-			ajax_update_list({'title': 'i got updated'});
+			console.log(todo_title.innerHTML);
+			//ajax_update_list({'title': });
 
 			if (bullet.nextSibling == null) 
 				bullet_factory();
@@ -119,7 +125,13 @@ function ajax_encode(data) {
 
 function ajax_update_list(data) {
 	let request = new XMLHttpRequest();
+	request.onload = ajax_request_listener;
+
 	request.open('POST', "../Project/databases/save-list.php", true);
 	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	request.send(ajax_encode(data));
+}
+
+function ajax_request_listener() {
+	console.log(this.responseText);
 }
