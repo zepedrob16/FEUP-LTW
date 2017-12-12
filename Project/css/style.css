@@ -77,16 +77,6 @@ body > header #headerMenu button{
     background-color: #f7f7f7;
 }
 
-body > header #headerMenu button:hover:before{
-    content: 'Settings';
-    color: #A9A9A9;
-    font-size: 1.1em;
-    font-weight: bolder;
-    position: relative;
-    bottom: 4.5px;
-    padding-right: 0.5em;
-}
-
 /*Settings buttons*/
 body > header #headerMenu button i{
     color: #A9A9A9;
@@ -406,6 +396,42 @@ body > header #searchBox #filtersubmit {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/*-------------------------------SETTINGS DROPDOWN------------------------*/
+
+#headerMenu {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+#headerDropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+/* Links inside the dropdown */
+#headerDropdown p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+#headerDropdown p:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+#headerMenu:hover #headerDropdown {
+    display: block;
+}
+
+/*---------------------------------FOOTER HANDLING------------------------------------*/
 
 footer {
     background-color: #f7f7f7;

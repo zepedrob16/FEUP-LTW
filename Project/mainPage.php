@@ -19,7 +19,12 @@
                 <a href="mainPage.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">
-                <button type="button"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> 
+                <button type="button" id="dropdown"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
+                <div id="headerDropdown">
+                    <p>Profile</p>
+                    <p>Archived</p>
+                    <p>Logout</p>
+                </div>
             </span>
             <span id="searchBox">
                 <input id="filter" type="text" placeholder="Search" />
