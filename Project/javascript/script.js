@@ -29,7 +29,7 @@ todo_add_button.addEventListener('click', (event) => {
 	// Creates a new title element.
 	let new_todo_title = document.createElement('input');
 	new_todo_title.setAttribute('class', 'content');
-	new_todo_title.setAttribute('id', 'title');
+	new_todo_title.setAttribute('id', 'list_title');
 	new_todo_title.setAttribute('type', 'text');
 	new_todo_title.setAttribute('placeholder', 'Title');
 
@@ -80,10 +80,10 @@ function bullet_factory() {
 	bullet.setAttribute('placeholder', 'Item');
 
 	bullet.addEventListener('keydown', (event) => {
+		if (event.keyCode == 13) { // ENTER key.
+			if (bullet.value == '')
+				return;
 
-		// Creates a new bulletpoint if user presses ENTER and isn't behind other bulletpoints.
-		if (event.keyCode == 13) {
-			console.log(todo_title.innerHTML);
 			//ajax_update_list({'title': });
 
 			if (bullet.nextSibling == null) 
@@ -91,28 +91,46 @@ function bullet_factory() {
 			else 
 				bullet.nextSibling.focus(); // If it's behind bulletpoints, focus next.
 		}
-
-		// The current bulletpoint's deleted when end of input is reached.
 		else if (event.keyCode == 8 && bullet.value.length == 0) {
 			event.preventDefault(); // Prevents deletion of last char of previous bulletpoint.
 			bullet.remove();
 
-			let prev_list_item = document.querySelector('#list_adder > input:last-child');
+			let prev_list_item = document.querySelector('#list_adder > #item:last-child');
+			console.log(prev_list_item);
 			
-			// Adds listener to title if backspace brings user from item to it.
-			if (prev_list_item == null) {
-				todo_title.addEventListener('keydown', keydown_title_listener, false);
-				todo_title.focus();
+			if (prev_list_item == null) { // Adds listener to title if backspace brings user from item to it.
+				document.getElementById('list_title').focus();
 			}
+
 			else if (prev_list_item.id == 'item')
 				prev_list_item.focus();
 		}
-
 	});
 
 	post_it.append(bullet);
 	bullet.focus();
 }  
+
+/**
+ *	Project/ Filters logic.
+**/
+function switch_filter_tab(event, tab) {
+	let tab_content = document.getElementsByClassName('tab_content');
+	let tab_links = document.getElementsByClassName('tab_links');
+
+	for (let i = 0; i < tab_content.length; i++)
+		tab_content[i].style.display = 'none'; // Hide the content of every tab.
+
+	for (let i = 0; i < tab_links.length; i++)
+		tab_links[i].className = tab_links[i].className.replace('active', '');
+
+	document.getElementById(tab).style.display = 'block';
+	event.currentTarget.className += ' active'; // Add active class to button that opened tab.
+}
+
+
+
+
 
 /* AJAX */
 
