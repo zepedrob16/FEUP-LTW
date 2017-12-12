@@ -51,7 +51,6 @@ todo_add_button.addEventListener('click', (event) => {
 		
 		if (event.keyCode == 188) {
 			event.preventDefault();
-			console.log(hashtags_input.value);
 
 			let hashtag = document.createElement('div');
 			hashtag.setAttribute('id', 'hastag_list');
@@ -64,9 +63,6 @@ todo_add_button.addEventListener('click', (event) => {
 	});
 
 	post_it.appendChild(hashtags_input);
-
-
-
 });
 
 /* Creates a new bullet point element. */
@@ -82,8 +78,10 @@ function bullet_factory() {
 		// Creates a new bulletpoint if user presses ENTER and isn't behind other bulletpoints.
 		if (event.keyCode == 13) {
 
+			ajax_update_list({'title': 'i got updated'});
+
 			if (bullet.nextSibling == null) 
-				bullet_factory(); // This recursive call surprisingly works.
+				bullet_factory();
 			else 
 				bullet.nextSibling.focus(); // If it's behind bulletpoints, focus next.
 		}
@@ -108,4 +106,20 @@ function bullet_factory() {
 
 	post_it.append(bullet);
 	bullet.focus();
-} 
+}  
+
+/* AJAX */
+
+// Encode data properly for AJAX.
+function ajax_encode(data) {
+	return Object.keys(data).map(k => {
+		return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+	}).join('&');
+}
+
+function ajax_update_list(data) {
+	let request = new XMLHttpRequest();
+	request.open('POST', "../Project/databases/save-list.php", true);
+	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	request.send(ajax_encode(data));
+}
