@@ -32,27 +32,18 @@
             </span>
         </header>
         
-        <div class="categories">
-            <aside>
-                <p>Filters</p>
-                <label class="filters">One
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="filters">Two
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="filters">Three
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="filters">Four
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-            </aside>
-        </div>
+        <aside class="categories">
+            <div id="sortByDate">
+                <button><p>Today</p></button>
+                <button><p>Week</p></button>
+                <button><p>Someday</p></button>
+            </div>
+
+            <div id="sortByFilter">
+                <button><p>Projects</p></button>
+                <button><p>Filters</p></button>
+            </div>
+        </aside>
         <div class="content">
             <button id="todo_add_button" type="submit" value="Add a list..."><img src="resources/add_b2.png"></button>
             <form id="list_adder" onsubmit="return false;">
@@ -65,7 +56,6 @@
                 ?>
             </div>
         </div>
-
         <footer>
             © 2017
             <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
