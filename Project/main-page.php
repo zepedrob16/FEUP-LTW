@@ -85,7 +85,12 @@
                 $stmt->execute(array($_SESSION['username']));
 
                 while($row = $stmt->fetch()) {
+
                     echo "<div>";
+
+                    echo "<span>";
+                    echo $row['id_list'];
+                    echo "</span>";
 
                     echo "<span id = 'list_title'>";
                     echo $row['title'];
@@ -105,8 +110,8 @@
 
                     echo "<div id = 'bulletpoints'>";
 
-                    $stmt2 = $dbh->prepare("SELECT * FROM Bulletpoint B JOIN List L WHERE username = ? AND B.id_list = L.id_list");
-                    $stmt2->execute(array($_SESSION['username']));
+                    $stmt2 = $dbh->prepare("SELECT DISTINCT content FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ?");
+                    $stmt2->execute(array($_SESSION['username'], $row['id_list']));
 
                     while($second_row = $stmt2->fetch()) {
 
