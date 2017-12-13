@@ -45,7 +45,7 @@
         <div class="content">
             <div id="info">
                 <span id="cropPic">
-                    <img id="profilePic" src="resources/bust_a_telmo.jpg">
+                <img id="profilePic" src="resources/profile-pictures/default-avatar.png">
                 </span>
                 <span id="fullName">
                     <?php
@@ -53,7 +53,7 @@
                     get_name($_SESSION['username']);
                     ?>
                 </span>
-                <span id="userame">
+                <span id="username">
                     <?php
                     include_once("databases/getter-db.php");
                     get_username($_SESSION['username']);
@@ -69,7 +69,6 @@
                     <input id="upload_button" type="file" name="image" />
                     <input type="submit" name="submit" value="Upload" />
                 </form>
-                
             </div>
         </div>
         <footer>

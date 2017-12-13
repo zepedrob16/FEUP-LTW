@@ -312,6 +312,7 @@ body > header #searchBox #filtersubmit {
 }
 
 .content #cropPic{
+    margin-left: 2em; 
     max-width: 170px;
     height: auto;
     position: relative;
