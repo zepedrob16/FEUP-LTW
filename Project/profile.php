@@ -45,7 +45,7 @@
         <div class="content">
             <div id="info">
                 <span id="cropPic">
-                    <img id="profilePic" style="vertical-align:middle" src="resources/bust_a_telmo.jpg" height="200">
+                    <img id="profilePic" src="resources/bust_a_telmo.jpg">
                 </span>
                 <span id="fullName">
                     <?php
