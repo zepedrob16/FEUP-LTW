@@ -67,7 +67,6 @@
         </aside>
         <div class="content">
             <button id="todo_add_button" type="submit"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
-
             <!-- The Modal -->
             <div id="myModal" class="modal">
                 <!-- Modal content -->
