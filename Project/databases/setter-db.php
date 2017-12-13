@@ -1,11 +1,14 @@
 <?php
 include_once('includes/session.php');
 
+$function = $_POST['function'];
+$session_username = $_SESSION['username'];
+
 // Uploads a profile pic to a given username.
-function set_profile_pic($id, $name, $extension, $username) {
+if ($function == 'upload_file') {
 	global $dbh;
-	$stmt = $dbh->prepare("INSERT INTO Image (?, ?, ?, ?)");
-	return $stmt->execute(array($username, $image));
+	$stmt = $dbh->prepare("SELECT id FROM Image WHERE username = ?");
+	return $stmt->execute(array($session_username));
 }
 
 ?>
