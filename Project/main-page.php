@@ -31,7 +31,7 @@
                 <i id="filtersubmit" class="fa fa-search" aria-hidden="true"></i>
             </span>
         </header>
-        
+
         <aside class="categories">
             <div id="sortByDate">
                 <button>
@@ -53,7 +53,7 @@
             </div>
 
             <div id="project_tab_content" class="tab_content">
-                
+
                 <!-- Extracts PROJECTS from the db. -->
                 <p><?php
                     include_once("databases/getter-db.php");
@@ -63,7 +63,7 @@
             </div>
 
             <div id="filter_tab_content" class="tab_content" style="display: none">
-                
+
                 <!-- Extracts FILTERS from the db. -->
                 <p><?php
                     include_once("databases/getter-db.php");
@@ -85,13 +85,41 @@
                     <form id="list_adder" onsubmit="return false;">
                 </div>
             </div>
-            
-            <div id="lists">
+
+            <span id="id">
                 <?php
-                include_once("profile_functions.php");
-                get_lists($_SESSION['username']);
+                include_once("list-functions.php");
+                get_id($_SESSION['username']);
                 ?>
-            </div>
+            </span>
+
+            <span id="title">
+                <?php
+                include_once("list-functions.php");
+                get_title($_SESSION['username']);
+                ?>
+            </span>
+
+            <span id="creation_date">
+                <?php
+                include_once("list-functions.php");
+                get_creation_date($_SESSION['username']);
+                ?>
+            </span>
+
+            <span id="priority">
+                <?php
+                include_once("list-functions.php");
+                get_priority($_SESSION['username']);
+                ?>
+            </span>
+
+            <span id="tags">
+                <?php
+                include_once("list-functions.php");
+                get_tags($_SESSION['username']);
+                ?>
+            </span>
         </div>
         <footer>
             © 2017
