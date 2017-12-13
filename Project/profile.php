@@ -48,20 +48,20 @@
 
                 <span>
                    <?php
-                        include_once("profile_functions.php");
+                        include_once("databases/getter-db.php");
                         get_name($_SESSION['username']);
                    ?>
                 </span>
 
                 <span>
                     <?php 
-                        include_once("profile_functions.php");
+                        include_once("databases/getter-db.php");
                         get_username($_SESSION['username']);
                     ?>
                 </span>
                 <span>
                     <?php 
-                        include_once("profile_functions.php");
+                        include_once("databases/getter-db.php");
                         get_email($_SESSION['username']);
                     ?>
                 </span>

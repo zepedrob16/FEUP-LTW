@@ -1,5 +1,5 @@
 <?php
-include_once('includes/session.php');
+include_once('../includes/session.php');
 
 $function = $_POST['function'];
 $session_username = $_SESSION['username'];
