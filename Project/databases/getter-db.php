@@ -18,6 +18,15 @@ function get_filters($username) {
     }
 }
 
+// Getter for profile pic name.
+function get_avatar_name($username) {
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT name FROM Image WHERE username = ?");
+    $stmt->execute(array($username));
+    $array_info = $stmt->fetch();
+    echo implode(',', $array_info);
+}
+
 // Getter for information relative to USER.
 function get_name($username) {
  	global $dbh;
