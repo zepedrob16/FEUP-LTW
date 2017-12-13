@@ -12,6 +12,7 @@
         include_once('includes/init.php');
         include_once('databases/user.php');
         include_once('includes/session.php');
+        require_once('databases/getter-db.php')
         ?>
     </head>
     <body class="main">
@@ -44,9 +45,13 @@
         </aside>
         <div class="content">
             <div id="info">
+                
                 <span id="cropPic">
-                <img id="profilePic" src="resources/profile-pictures/default-avatar.png">
+
+                    <img id="profilePic" src="resources/avatars/<?php get_avatar_name($_SESSION['username']); ?>">
+
                 </span>
+
                 <span id="fullName">
                     <?php
                     include_once("databases/getter-db.php");
@@ -67,7 +72,7 @@
                 </span>
                 <form id="upload_file" method="post" enctype="multipart/form-data">
                     <input id="upload_button" type="file" name="image" />
-                    <input type="submit" name="submit" value="Upload" />
+                    <input id="submit_button" type="submit" name="submit" value="Upload" />
                 </form>
             </div>
         </div>
