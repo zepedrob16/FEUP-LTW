@@ -51,17 +51,27 @@
                 <button class="tab_link" onclick="switch_filter_tab(event, 'project_tab_content')"><p>Projects</p></button>
                 <button class="tab_link" onclick="switch_filter_tab(event, 'filter_tab_content')"><p>Filters</p></button>
             </div>
+
             <div id="project_tab_content" class="tab_content">
-                <!-- Extract from database, obviously. These values are just for testing. -->
-                <p>Deep</p>
-                <p>Dark</p>
-                <p>Fantasies</p>
+                
+                <!-- Extracts PROJECTS from the db. -->
+                <p><?php
+                    include_once("databases/getter-db.php");
+                    get_projects($_SESSION['username']);
+                ?></p>
+
             </div>
+
             <div id="filter_tab_content" class="tab_content" style="display: none">
-                <!-- Extract from database, obviously. These values are just for testing. -->
-                <p>Mexican</p>
-                <p>Cuisine</p>
+                
+                <!-- Extracts FILTERS from the db. -->
+                <p><?php
+                    include_once("databases/getter-db.php");
+                    get_filters($_SESSION['username']);
+                ?></p>
+
             </div>
+
         </aside>
         <div class="content">
             <button id="todo_add_button" type="submit" value="Add a list..."><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>

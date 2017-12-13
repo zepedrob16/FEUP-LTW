@@ -1,5 +1,5 @@
 <?php
-include_once('../includes/session.php');
+include_once('includes/session.php');
 
 $title = $_POST['title'];
 

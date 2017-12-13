@@ -3,7 +3,7 @@
     <head>
         <title> List Maker Lite </title>
         <meta charset="utf-8" />
-        <script src="generate-list.js" defer></script>
+        <script src="javascript/script-profile.js" defer></script>
         <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,7 +23,7 @@
                 <a href="profilePic.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">
-                <a href="mainPage.php">Your Lists</a>
+                <a href="main-page.php">Your Lists</a>
                 <a href="index.html">Log out</a>
             </span>
         </header>
@@ -39,15 +39,20 @@
                 <a href="something">Color Scheme</a>
             </aside>
         </div>
+
+
         <div class="content">
+
             <div id="info">
                 <img id="profilePic" style="vertical-align:middle" src="resources/bust_a_telmo.jpg" height="200">
+
                 <span>
                    <?php
                         include_once("profile_functions.php");
                         get_name($_SESSION['username']);
                    ?>
                 </span>
+
                 <span>
                     <?php 
                         include_once("profile_functions.php");
@@ -60,6 +65,16 @@
                         get_email($_SESSION['username']);
                     ?>
                 </span>
+
+                <form id="upload_file" method="post" enctype="multipart/form-data">
+                    <input id="upload_button" type="file" name="image" />
+                    <input type="submit" name="submit" value="Upload" />
+                </form>
+
+                
+
+
+
             </div>
         </div>
         <footer>

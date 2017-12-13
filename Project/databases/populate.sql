@@ -3,9 +3,11 @@
 .nullvalue NULL
 
 DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Project;
 DROP TABLE IF EXISTS List;
 DROP TABLE IF EXISTS Tag;
 DROP TABLE IF EXISTS Bulletpoint;
+DROP TABLE IF EXISTS Image;
 
 CREATE TABLE User (
 	username VARCHAR PRIMARY KEY,
@@ -14,17 +16,23 @@ CREATE TABLE User (
 	email VARCHAR
 );
 
+CREATE TABLE Project (
+	id_project INTEGER PRIMARY KEY,
+	title VARCHAR,
+	username VARCHAR NOT NULL REFERENCES User(username) 
+);
+
 CREATE TABLE List (
 	id_list INTEGER PRIMARY KEY,
-	username VARCHAR NOT NULL REFERENCES users(username),
+	username VARCHAR NOT NULL REFERENCES User(username),
 	title TEXT NOT NULL,
 	creation_date DATE NOT NULL,
 	priority INTEGER,
-	tags VARCHAR NOT NULL REFERENCES tag(tags)
+	tags VARCHAR NOT NULL REFERENCES Tag(tags)
 );
 
 CREATE TABLE Tag (
-	id_tag INTEGER REFERENCES lists(id),
+	id_tag INTEGER REFERENCES List(id),
 	name VARCHAR NOT NULL
 );
 
@@ -32,12 +40,25 @@ CREATE TABLE Bulletpoint (
 	id_bp INTEGER PRIMARY KEY,
 	content VARCHAR NOT NULL,
 	checked BIT,
-	id_list INTEGER REFERENCES lists(id_list)
+	id_list INTEGER REFERENCES List(id_list)
+);
+
+CREATE TABLE Image (
+	id INTEGER PRIMARY KEY,
+	name VARCHAR NOT NULL,
+	extension VARCHAR NOT NULL,
+	size INTEGER NOT NULL,
+	last_modified INTEGER NOT NULL, 
+	username VARCHAR NOT NULL REFERENCES User(username)
 );
 
 -- Populate USER table.
 INSERT INTO User VALUES ("admin", "admin", "Administrator", "admin@admin.com");
 INSERT INTO User VALUES ("temp", "1234", "Beatriz Baldaia", "bibs@gmail.com");
+
+-- Populate PROJECT table.
+INSERT INTO Project VALUES (1, "HUMUS Christmas", "admin");
+INSERT INTO Project VALUES (2, "Baldaia Ships", "temp");
 
 -- Populate LIST table.
 INSERT INTO List VALUES (1, "temp", "Quesadilla recipe", "2017/10/28", 2, "food, mexican");
