@@ -68,7 +68,7 @@
 
         </aside>
         <div class="content">
-            <button id="todo_add_button" type="submit" value="Add a list..."><img src="resources/add_b2.png"></button>
+            <button id="todo_add_button" type="submit" value="Add a list..."><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
             <form id="list_adder" onsubmit="return false;">
             </form>
             

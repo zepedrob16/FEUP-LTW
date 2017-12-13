@@ -284,13 +284,10 @@ body > header #searchBox #filtersubmit {
 
 /*Add a list button*/
 .content #todo_add_button {
-     width: 75%;
-    padding: 0.5em;
-    margin: 8px 0;
-    border: 1px solid #003333;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #eee;
+    width: auto;
+    border: none;
+    background-color: white;
+    float: right;
 }
 
 .content #profilePic{
