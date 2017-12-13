@@ -56,7 +56,7 @@ todo_add_button.addEventListener('click', (event) => {
 			event.preventDefault();
 
 			let hashtag = document.createElement('div');
-			hashtag.setAttribute('id', 'hastag_list');
+			hashtag.setAttribute('id', 'list_tags');
 			hashtag.innerHTML = hashtags_input.value;
 			post_it.appendChild(hashtag);
 

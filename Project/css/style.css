@@ -1,3 +1,7 @@
+/*********************************************************
+*------------------GLOBAL POSITIONING--------------------*
+**********************************************************/
+
 html{
     height: 100%;
     width: 100%;
@@ -35,7 +39,9 @@ html{
      "footer      footer        footer      footer";
 }
 
-/*-----------------HEADER HANDLING---------------------*/
+/*********************************************************
+*--------------------------HEADER------------------------*
+**********************************************************/
 
 /*General coloring and positioning*/
 body > header {
@@ -66,23 +72,25 @@ body > header h1 {
     color: #A9A9A9;
 }
 
+/*Header dropdown positioning*/
 body > header #headerMenu{
     float: right;
     padding-right: 1em;
     padding-top: 0.3em;
 }
 
+/*Header dropdown styling*/
 body > header #headerMenu button{
     border: none;
     background-color: #f7f7f7;
 }
 
-/*Settings buttons*/
+/*Settings icon color*/
 body > header #headerMenu button i{
     color: #A9A9A9;
 }
 
-/*Search button*/
+/*Search box button*/
 body > header #searchBox{
     float:right;
     padding-right: 0.55em;
@@ -109,9 +117,11 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
-/*----------------MAIN CONTENT HANDLING------------------*/
+/*********************************************************
+*----------------------MAIN CONTENT----------------------*
+**********************************************************/
 
-/*General positioning*/
+/*Main page and profile page positioning*/
 .main .content {
     grid-area: main;
     padding-top: 2em;
@@ -123,6 +133,7 @@ body > header #searchBox #filtersubmit {
     background-color: white;
 }
 
+/*Login and register page positioning*/
 .login .content{
     grid-area: main;
     line-height: 2em;
@@ -134,7 +145,7 @@ body > header #searchBox #filtersubmit {
     padding: 1em;
 }
 
-/*Sign in page positioning and coloring*/
+/*Login and Register page positioning and coloring*/
 .content span{
     display: block;
 }
@@ -146,11 +157,6 @@ body > header #searchBox #filtersubmit {
 
 .content span a:hover{
     text-decoration: underline;
-}
-
-.content #lists{
-    width: 30%;
-    background-color: #f7f7f7;
 }
 
 #signIn form {
@@ -166,6 +172,7 @@ body > header #searchBox #filtersubmit {
     display: block;
 }
 
+/*Text inputs styling and positioning*/
 #signIn form #inputVar {
     padding: 12px 27px;
     margin: 8px 0;
@@ -175,6 +182,7 @@ body > header #searchBox #filtersubmit {
     box-sizing: border-box;
 }
 
+/*User icon postioning*/
 #signIn form #userIcon {
     position: relative;
     z-index: 1;
@@ -183,6 +191,7 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
+/*Password icon postioning*/
 #signIn form #lockIcon {
     position: relative;
     z-index: 1;
@@ -191,6 +200,7 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
+/*Email icon postioning*/
 #signIn form #emailIcon {
     position: relative;
     z-index: 1;
@@ -199,6 +209,7 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
+/*Submit button posioning and coloring*/
 #signIn form #submit {
     background-color: #4CAF50;
     color: white;
@@ -218,6 +229,7 @@ body > header #searchBox #filtersubmit {
     padding-top: 1em;
 }
 
+/*------------------List editor------------------*/
 #item{
     width:45%;
     padding: 0.2em;
@@ -237,7 +249,7 @@ body > header #searchBox #filtersubmit {
     background-color: #eee;
 }
 
-.content #list_title{
+.content > #list_title{
     width: 75%;
     padding: 0.5em;
     margin: 8px 0;
@@ -261,7 +273,7 @@ body > header #searchBox #filtersubmit {
     background-color: #4CAF65;
 }
 
-.content #hashtags{
+.content #list_tags{
     width:15%;
     padding: 0.2em;
     border: 1px solid #A9A9A9;
@@ -282,7 +294,7 @@ body > header #searchBox #filtersubmit {
     content: '#';
 }
 
-/*Add a list button*/
+/*Add an add list button*/
 .content #todo_add_button {
     width: auto;
     border: none;
@@ -290,13 +302,73 @@ body > header #searchBox #filtersubmit {
     float: right;
 }
 
+/*------------------Saved Lists------------------*/
 .content .savedLists{
-    display: flex;
-    background-color: #f7f7f7;
-    border: 1px solid #a9a9a9;
-    border-radius: 4px;
+    width: 100%;
+    length: 100%;
+    margin-left: 1em;
+    align-self: left;
+    display: grid;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 250px 250px 250px;
+    grid-template-areas:
+     "list list list"
+     "list list list"
+     "list list list"
 }
 
+.content .savedLists #single_list{
+    background-color: #f7f7f7;
+    border: 1px solid #a9a9a9;
+    font-size: 0.9em;
+    position: relative;
+}
+
+.content .savedLists #single_list #list_title{
+    width: 60%;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+    padding-left: 0.8em;
+    overflow: hidden;
+}
+
+.content .savedLists #single_list #list_date{
+    width: 60%;
+    line-height: 0.3em;
+    font-size: 0.75em;
+    color: #a9a9a9;
+    text-align: left;
+    padding-left: 1em;
+}
+
+.content .savedLists #single_list #list_tags{
+    float: right;
+}
+
+.content .savedLists #single_list #list_priority{
+    line-height: 0.1em;
+    font-size: 1.3em;
+    color: green;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.content .savedLists #single_list #bulletpoints{
+    display: block;
+    text-align: left;
+    padding-left: 1.2em;
+    padding-top: 0.5em;
+}
+
+.content .savedLists #single_list #bulletpoints #single_bulletpoint i{
+    padding-right: 1em; 
+}
+
+/*------------------Profile----------------------*/
 .content #profilePic{
     display: block;
     margin: 0 auto;

@@ -86,7 +86,7 @@
 
                 while($row = $stmt->fetch()) {
 
-                    echo "<div>";
+                    echo "<div id='single_list'>";
 
                     echo "<span id = 'list_title'>";
                     echo $row['title'];
@@ -96,14 +96,6 @@
                     echo $row['creation_date'];
                     echo "</span>";
 
-                    echo "<span id = 'list_priority'>";
-                    echo $row['priority'];
-                    echo "</span>";
-
-                    echo "<span id = 'list_tags'>";
-                    echo $row['tags'];
-                    echo "</span>";
-
                     echo "<div id = 'bulletpoints'>";
 
                     $stmt2 = $dbh->prepare("SELECT DISTINCT content FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ?");
@@ -111,13 +103,28 @@
 
                     while($second_row = $stmt2->fetch()) {
 
-                    echo "<span>";
+                    echo "<span id='single_bulletpoint'>";
+                    echo "<i class='fa fa-square-o' aria-hidden='true'></i>";
                     echo $second_row['content'];
                     echo "</span>";
 
                     }
 
                     echo "</div>";
+
+                    echo "<span id = 'list_priority'>";
+                    if($row['priority'] == 3){
+                        echo "<i class='fa fa-thermometer-empty' id='thermometer' aria-hidden='true'></i>";
+                    } else if($row['priority'] == 2){
+                        echo "<i class='fa fa-thermometer-half' id='thermometer' aria-hidden='true'></i>";
+                    } else {
+                        echo "<i class='fa fa-thermometer-full' id='thermometer' aria-hidden='true'></i>";
+                    }
+                    echo "</span>";
+
+                    echo "<span id = 'list_tags'>";
+                    echo $row['tags'];
+                    echo "</span>";
 
                     echo "</div>";
                 }?>
