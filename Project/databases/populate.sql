@@ -76,7 +76,7 @@ INSERT INTO Tag VALUES (6, "music");
 INSERT INTO Tag VALUES (7, "band");
 INSERT INTO Tag VALUES (8, "gig");
 
--- Populate Bulletpoint table.
+-- Populate BULLETPOINT table.
 INSERT INTO Bulletpoint VALUES (1, "Boneless chicken", 0, 1);
 INSERT INTO Bulletpoint VALUES (2, "Chopped onion", 1, 1);
 INSERT INTO Bulletpoint VALUES (3, "Fajita seasoning", 0, 1);
@@ -86,3 +86,6 @@ INSERT INTO Bulletpoint VALUES (6, "Water", 1, 2);
 INSERT INTO Bulletpoint VALUES (7, "Fire", 0, 2);
 INSERT INTO Bulletpoint VALUES (8, "Nintendo Switch", 0, 3);
 INSERT INTO Bulletpoint VALUES (9, "Coal", 1, 3);
+
+-- Populate IMAGE table.
+INSERT INTO Image VALUES(1, "default-avatar", ".png", 123456, 123456, "admin");

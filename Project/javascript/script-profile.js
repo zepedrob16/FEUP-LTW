@@ -26,7 +26,7 @@ function ajax_update(data) {
 	let request = new XMLHttpRequest();
 	request.onload = ajax_request_listener;
 
-	request.open('POST', "databases/setter-db.php", true);
+	request.open('POST', "setter-db.php", true);
 	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	request.send(ajax_encode(data));
 }
