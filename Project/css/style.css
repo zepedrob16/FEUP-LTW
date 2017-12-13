@@ -392,6 +392,14 @@ body > header #searchBox #filtersubmit {
 
 /* Links inside the dropdown */
 #headerDropdown p {
+    margin-top: 0;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#headerDropdown a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -400,6 +408,10 @@ body > header #searchBox #filtersubmit {
 
 /* Change color of dropdown links on hover */
 #headerDropdown p:hover {
+    background-color: #f1f1f1;
+}
+
+#headerDropdown a:hover {
     background-color: #f1f1f1;
 }
 

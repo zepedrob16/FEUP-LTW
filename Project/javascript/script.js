@@ -81,7 +81,7 @@ function bullet_factory() {
 			if (bullet.value == '')
 				return;
 
-			//ajax_update_list({'title': });
+			ajax_update_list({'title': 'penis'});
 
 			if (bullet.nextSibling == null) 
 				bullet_factory();
@@ -142,7 +142,7 @@ function ajax_update_list(data) {
 	let request = new XMLHttpRequest();
 	request.onload = ajax_request_listener;
 
-	request.open('POST', "../Project/databases/save-list.php", true);
+	request.open('POST', "databases/save-list.php", true);
 	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	request.send(ajax_encode(data));
 }
