@@ -19,9 +19,6 @@ let keydown_title_listener = function(event) {
 
 todo_add_button.addEventListener('click', (event) => {
 
-	// Hides the button and only shows the title.
-	todo_add_button.style.display = 'none';
-
 	// Reset the to-do list by deleting the title and every bullet.
 	while (post_it.firstChild)
 		post_it.removeChild(post_it.firstChild);

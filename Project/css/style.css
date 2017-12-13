@@ -230,7 +230,7 @@ body > header #searchBox #filtersubmit {
     padding-top: 1em;
     padding-bottom: 1em;
     width: 85%;
-    height: 85%;
+    height: auto;
     background-color: red;
     margin: 0 auto;
     border-radius: 4px;
@@ -264,14 +264,14 @@ body > header #searchBox #filtersubmit {
 .content #hashtags{
     width:15%;
     padding: 0.2em;
-    border: 1px solid #003333;
+    border: 1px solid #A9A9A9;
     border-radius: 4px;
     background-color: #eee;
 }
 
 #hastag_list{
     display: inline-block;
-    background-color: #003333;
+    background-color: #A9A9A9;
     color: white;
     font-size: 0.7em;
     padding: 3px;
@@ -290,13 +290,14 @@ body > header #searchBox #filtersubmit {
     float: right;
 }
 
-.content #profilePic{
-    position: relative;
-    padding:1px;
-    border:1px solid #003333;
-    float: left;
-    margin-left: 1em;
+.content .savedLists{
+    display: flex;
+    background-color: #f7f7f7;
+    border: 1px solid #a9a9a9;
+    border-radius: 4px;
 }
+
+
 
 /*---------------------ASIDE HANDLING----------------*/
 .categories {
