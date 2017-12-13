@@ -16,13 +16,13 @@
         <header id="mainHeader">
             <span id="title">
                 <!--<img src="resources/logo.png" width="50"/>-->
-                <a href="mainPage.php"><h1>LIST MAKER</h1></a>
+                <a href="main-page.php"><h1>LIST MAKER</h1></a>
             </span>
             <span id="headerMenu">
                 <button type="button" id="dropdown"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
                 <div id="headerDropdown">
-                    <p>Profile</p>
-                    <p>Archived</p>
+                    <a href="profile.php">Profile</a>
+                    <a href="#">Archived</a>
                     <a href="index.html">Logout</a>
                 </div>
             </span>
@@ -78,10 +78,23 @@
             
             <div class="savedLists">
                 <span id="id">
-                    <?php
-                    include_once("list-functions.php");
-                    get_id($_SESSION['username']);
-                    ?>
+                    <!--<?php
+                    //include_once("list-functions.php");
+                    //get_id($_SESSION['username']);
+                    ?>-->
+
+                    <span id="id">
+                        <?php
+                            include_once("includes/session.php");
+                            global $dbh;
+                            $stmt = $dbh->prepare("SELECT id_list FROM List WHERE username = ?");
+                            $stmt->execute(array($_SESSION['username']));                                          
+                            while($row = $stmt->fetch()) {
+                                echo "<div>";
+                                echo $row['id_list'];
+                                echo "</div>";
+                        }?>
+                    </span>
                 </span>
                 <span id="title">
                     <?php
