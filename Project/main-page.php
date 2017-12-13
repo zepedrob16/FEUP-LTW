@@ -88,10 +88,6 @@
 
                     echo "<div>";
 
-                    echo "<span>";
-                    echo $row['id_list'];
-                    echo "</span>";
-
                     echo "<span id = 'list_title'>";
                     echo $row['title'];
                     echo "</span>";
