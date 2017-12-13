@@ -72,60 +72,43 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <form id="list_adder" onsubmit="return false;"></form>
-                </div>
-            </div>
-            
-            <div class="savedLists">
-                <span id="id">
-                    <!--<?php
-                    //include_once("list-functions.php");
-                    //get_id($_SESSION['username']);
-                    ?>-->
-
-                    <span id="id">
-                        <?php
-                            include_once("includes/session.php");
-                            global $dbh;
-                            $stmt = $dbh->prepare("SELECT id_list FROM List WHERE username = ?");
-                            $stmt->execute(array($_SESSION['username']));                                          
-                            while($row = $stmt->fetch()) {
-                                echo "<div>";
-                                echo $row['id_list'];
-                                echo "</div>";
-                        }?>
-                    </span>
-                </span>
-                <span id="title">
-                    <?php
-                    include_once("list-functions.php");
-                    get_title($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="creation_date">
-                    <?php
-                    include_once("list-functions.php");
-                    get_creation_date($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="priority">
-                    <?php
-                    include_once("list-functions.php");
-                    get_priority($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="tags">
-                    <?php
-                    include_once("list-functions.php");
-                    get_tags($_SESSION['username']);
-                    ?>
-                </span>
+                <form id="list_adder" onsubmit="return false;"></form>
             </div>
         </div>
         
-        <footer>
-            © 2017
-            <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
-        </footer>
-    </body>
+        <div class="savedLists">
+            <?php
+            include_once("includes/session.php");
+            global $dbh;
+            $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
+            $stmt->execute(array($_SESSION['username']));
+            while($row = $stmt->fetch()) {
+            echo "<div>";
+                
+                echo "<span>";
+                    echo $row['id_list'];
+                echo "</span>";
+                
+                echo "<span>";
+                    echo $row['title'];
+                echo "</span>";
+                echo "<span>";
+                    echo $row['creation_date'];
+                echo "</span>";
+                echo "<span>";
+                    echo $row['priority'];
+                echo "</span>";
+                echo "<span>";
+                    echo $row['tags'];
+                echo "</span>";
+            echo "</div>";
+            }?>
+        </div>
+    </div>
+    
+    <footer>
+        © 2017
+        <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
+    </footer>
+</body>
 </html>

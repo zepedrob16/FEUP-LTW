@@ -45,23 +45,23 @@
         <div class="content">
             <div id="info">
                 <span id="cropPic">
-                <img id="profilePic" src="resources/bust_a_telmo.jpg">
+                    <img id="profilePic" style="vertical-align:middle" src="resources/bust_a_telmo.jpg" height="200">
                 </span>
                 <span id="fullName">
                     <?php
-                    include_once("profile_functions.php");
+                    include_once("databases/getter-db.php");
                     get_name($_SESSION['username']);
                     ?>
                 </span>
-                <span id="username">
+                <span id="userame">
                     <?php
-                    include_once("profile_functions.php");
+                    include_once("databases/getter-db.php");
                     get_username($_SESSION['username']);
                     ?>
                 </span>
                 <span id="email">
                     <?php
-                    include_once("profile_functions.php");
+                    include_once("databases/getter-db.php");
                     get_email($_SESSION['username']);
                     ?>
                 </span>
