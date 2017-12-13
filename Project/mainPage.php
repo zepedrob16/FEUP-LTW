@@ -34,12 +34,18 @@
         
         <aside class="categories">
             <div id="sortByDate">
-                <i class="fa fa-calendar-o fa-fw" id="dateIcon" aria-hidden="true"></i>
-                <button><p>Today</p></button>
-                <i class="fa fa-forward fa-fw" id="dateIcon" aria-hidden="true"></i>
-                <button><p>Week</p></button>
-                <i class="fa fa-fast-forward fa-fw" id="dateIcon" aria-hidden="true"></i>
-                <button><p>Someday</p></button>
+                <button>
+                    <i class="fa fa-calendar-o fa-fw" id="dateIcon" aria-hidden="true"></i>
+                    <p>Today</p>
+                </button>
+                <button>
+                    <i class="fa fa-calendar fa-fw" id="dateIcon" aria-hidden="true"></i>
+                    <p>Week</p>
+                </button>
+                <button>
+                    <i class="fa fa-calendar-minus-o fa-fw" id="dateIcon" aria-hidden="true"></i>
+                    <p>Someday</p>
+                </button>
             </div>
 
             <div id="sortByFilter">

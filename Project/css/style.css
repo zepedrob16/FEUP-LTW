@@ -322,16 +322,15 @@ body > header #searchBox #filtersubmit {
 }
 
 .categories #sortByDate button{
-    display: block;
+    display: flex;
     width: 100%;
     padding-left: 3em;
 }
 
-.categories #sortByDate #dateIcon{
-     postion:relative;
-     top: 70px;
-    height:25px;
-    margin-bottom:-25px;
+.categories #sortByDate button i{
+    position: relative;
+    top: 15px;
+    right: 5px;
 }
 
 .categories #sortByFilter{
