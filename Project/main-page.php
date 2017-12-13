@@ -75,37 +75,54 @@
                 <form id="list_adder" onsubmit="return false;"></form>
             </div>
         </div>
-        
+
+
         <div class="savedLists">
             <?php
-            include_once("includes/session.php");
-            global $dbh;
-            $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
-            $stmt->execute(array($_SESSION['username']));
-            while($row = $stmt->fetch()) {
-            echo "<div>";
-                
-                echo "<span>";
-                    echo $row['id_list'];
-                echo "</span>";
-                
-                echo "<span>";
+                include_once("includes/session.php");
+                global $dbh;
+                $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
+                $stmt->execute(array($_SESSION['username']));
+
+                while($row = $stmt->fetch()) {
+                    echo "<div>";
+
+                    echo "<span id = 'list_title'>";
                     echo $row['title'];
-                echo "</span>";
-                echo "<span>";
+                    echo "</span>";
+
+                    echo "<span id = 'list_date'>";
                     echo $row['creation_date'];
-                echo "</span>";
-                echo "<span>";
+                    echo "</span>";
+
+                    echo "<span id = 'list_priority'>";
                     echo $row['priority'];
-                echo "</span>";
-                echo "<span>";
+                    echo "</span>";
+
+                    echo "<span id = 'list_tags'>";
                     echo $row['tags'];
-                echo "</span>";
-            echo "</div>";
-            }?>
+                    echo "</span>";
+
+                    echo "<div id = 'bulletpoints'>";
+
+                    $stmt2 = $dbh->prepare("SELECT * FROM Bulletpoint B JOIN List L WHERE username = ? AND B.id_list = L.id_list");
+                    $stmt2->execute(array($_SESSION['username']));
+
+                    while($second_row = $stmt2->fetch()) {
+
+                    echo "<span>";
+                    echo $second_row['content'];
+                    echo "</span>";
+
+                    }
+
+                    echo "</div>";
+
+                    echo "</div>";
+                }?>
         </div>
     </div>
-    
+
     <footer>
         © 2017
         <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
