@@ -355,6 +355,7 @@ body > header #searchBox #filtersubmit {
 .categories #sortByFilter button.active{
     color: black;
 }
+
 /*-------------------------------SETTINGS DROPDOWN------------------------*/
 
 #headerMenu {

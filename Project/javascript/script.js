@@ -112,20 +112,20 @@ function bullet_factory() {
 }  
 
 /**
- *	Project/ Filters logic.
+ *	Project/ filters logic.
 **/
 function switch_filter_tab(event, tab) {
 	let tab_content = document.getElementsByClassName('tab_content');
-	let tab_links = document.getElementsByClassName('tab_links');
+	let tab_links = document.getElementsByClassName('tab_link');
 
 	for (let i = 0; i < tab_content.length; i++)
 		tab_content[i].style.display = 'none'; // Hide the content of every tab.
 
-	for (let i = 0; i < tab_links.length; i++)
-		tab_links[i].className = tab_links[i].className.replace('active', '');
+	for (let i = 0; i < tab_links.length; i++) 
+		tab_links[i].className = tab_links[i].className.replace('_active', '');
 
 	document.getElementById(tab).style.display = 'block';
-	event.currentTarget.className += ' active'; // Add active class to button that opened tab.
+	event.currentTarget.className += '_active'; // Add active class to button that opened tab.
 }
 
 

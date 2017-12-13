@@ -40,18 +40,18 @@
             </div>
 
             <div id="sortByFilter">
-                <button class="tab_link" onclick="switch_filter_tab(event, 'projects_tab_content')"><p>Projects</p></button>
+                <button class="tab_link" onclick="switch_filter_tab(event, 'project_tab_content')"><p>Projects</p></button>
                 <button class="tab_link" onclick="switch_filter_tab(event, 'filter_tab_content')"><p>Filters</p></button>
             </div>
 
-            <div id="projects_tab_content" class="tab_content">
+            <div id="project_tab_content" class="tab_content">
                 <!-- Extract from database, obviously. These values are just for testing. -->
                 <p>Deep</p>
                 <p>Dark</p>
                 <p>Fantasies</p>
             </div>
 
-            <div id="filter_tab_content" class="tab_content">
+            <div id="filter_tab_content" class="tab_content" style="display: none">
                 <!-- Extract from database, obviously. These values are just for testing. -->
                 <p>Mexican</p>
                 <p>Cuisine</p>
