@@ -67,6 +67,7 @@
         </aside>
         <div class="content">
             <button id="todo_add_button" type="submit"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
+
             <!-- The Modal -->
             <div id="myModal" class="modal">
                 <!-- Modal content -->
@@ -77,36 +78,37 @@
             </div>
             
             <div class="savedLists">
-                <span id="id">
-                    <?php
-                    include_once("list-functions.php");
-                    get_id($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="title">
-                    <?php
-                    include_once("list-functions.php");
-                    get_title($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="creation_date">
-                    <?php
-                    include_once("list-functions.php");
-                    get_creation_date($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="priority">
-                    <?php
-                    include_once("list-functions.php");
-                    get_priority($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="tags">
-                    <?php
-                    include_once("list-functions.php");
-                    get_tags($_SESSION['username']);
-                    ?>
-                </span>
+                <?php
+                    include_once("includes/session.php");
+                    global $dbh;
+                    $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
+                    $stmt->execute(array($_SESSION['username']));         
+
+                    while($row = $stmt->fetch()) {
+                        echo "<div>";
+                        
+                        echo "<span>";
+                        echo $row['id_list'];
+                        echo "</span>";
+                        
+                        echo "<span>";
+                        echo $row['title'];
+                        echo "</span>";
+
+                        echo "<span>";
+                        echo $row['creation_date'];
+                        echo "</span>";
+
+                        echo "<span>";
+                        echo $row['priority'];
+                        echo "</span>";
+
+                        echo "<span>";
+                        echo $row['tags'];
+                        echo "</span>";
+
+                        echo "</div>";
+                    }?>
             </div>
         </div>
         

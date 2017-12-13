@@ -14,8 +14,9 @@ function get_filters($username) {
 	global $dbh;
 	$stmt = $dbh->prepare("SELECT tags FROM List WHERE username = ?");
 	$stmt->execute(array($username));
-	$array_info = $stmt->fetch();
-	echo implode(',', $array_info);
+	while ($row = $stmt->fetch()) {
+     echo $row['tags'];
+    }
 }
 
 ?>
