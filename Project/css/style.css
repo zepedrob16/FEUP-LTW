@@ -323,27 +323,20 @@ body > header #searchBox #filtersubmit {
 
 /*------------------Saved Lists------------------*/
 .content .savedLists{
-    width: 95%;
-    length: 100%;
-    margin-left: 1em;
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+  -webkit-column-gap: .5rem; /* Chrome, Safari, Opera */
+  -moz-column-gap: .5rem; /* Firefox */
+  column-gap: .5rem;
 
-    display: grid;
-    text-align: left;
-    grid-row-gap: 1em;
-    grid-column-gap: 1em;
-    grid-auto-rows: min-content;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 225px 225px 225px;
-    grid-template-areas:
-     "list list list"
-     "list list list"
-     "list list list"
 }
 
 .content .savedLists #single_list{
     background-color: #f7f7f7;
     border: 1px solid #a9a9a9;
     font-size: 0.9em;
+    width: calc(100% / 1);
 
     display: grid;
     grid-template-rows: 35px auto 35px;
@@ -399,8 +392,12 @@ body > header #searchBox #filtersubmit {
     padding-top: 0.5em;
 }
 
-.content .savedLists #single_list #bulletpoints #single_bulletpoint i{
-    padding-right: 1em; 
+.content .savedLists #single_list #bulletpoints .single_bulletpoint_add{
+    grid-area: items;
+    display: block;
+    text-align: left;
+    padding-left: 1.2em;
+    padding-top: 0.5em;
 }
 
 /*------------------Profile----------------------*/

@@ -100,6 +100,11 @@
                             echo "<span class='checkmark'></span>";
                         echo "</label>";
                         }
+
+                        echo "<label class='single_bulletpoint_add'>";
+                            echo "<input type='text' name='add_item' placeholder='Add an item...'>";
+                        echo "</label>";
+
                     echo "</div>";
                     echo "<span id = 'list_priority'>";
                         if($row['priority'] == 1){
