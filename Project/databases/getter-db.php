@@ -6,7 +6,9 @@ function get_projects($username) {
 	$stmt = $dbh->prepare("SELECT title FROM Project WHERE username = ?");
 	$stmt->execute(array($username));
 	$array_info = $stmt->fetch();
-	echo implode(',', $array_info);
+  
+  if ($array_info == ' ')
+    echo implode(',', $array_info);
 }
 
 function get_filters($username) {
@@ -24,7 +26,9 @@ function get_new_list_id($username) {
   $stmt = $dbh->prepare("SELECT id_list FROM List WHERE username = ? ORDER BY id_list DESC LIMIT 1");
   $stmt->execute(array($username));
   $array_info = $stmt->fetch();
-  print implode(',', $array_info);
+
+  if ($array_info == ' ')
+    echo implode(',', $array_info);
 }
 
 // Getter for information relative to USER.

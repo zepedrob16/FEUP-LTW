@@ -52,10 +52,6 @@ CREATE TABLE Image (
 	username VARCHAR NOT NULL REFERENCES User(username)
 );
 
--- Populate USER table.
-INSERT INTO User VALUES ("admin", "admin", "Administrator", "admin@admin.com");
-INSERT INTO User VALUES ("temp", "1234", "Beatriz Baldaia", "bibs@gmail.com");
-
 -- Populate PROJECT table.
 INSERT INTO Project VALUES (1, "HUMUS Christmas", "admin");
 INSERT INTO Project VALUES (2, "Baldaia Ships", "temp");

@@ -1,7 +1,7 @@
 let post_it = document.getElementById('new_list');
 
 window.onload = function() {
-	ajax_update({'function': 'init_list'});
+	//ajax_update({'function': 'init_list'});
 }
 
 /* Listener for the title. */
@@ -57,6 +57,17 @@ let extra_buttons_listener = function() {
 	post_it.appendChild(hashtags_input);
 
 	document.getElementById('list_title_add').removeEventListener('click', extra_buttons_listener); // Only run once.
+}
+
+/**
+ *	Sends an AJAX request to update a checkbox.
+**/
+let every_bulletpoint = document.getElementsByClassName('single_bulletpoint');
+
+for (let i = 0; i < every_bulletpoint.length; i++) {
+	every_bulletpoint[i].addEventListener('click', (event) => {
+		ajax_update({'function': 'update_bulletpoint', 'content': 'pila', 'checked': 'pila', 'id_list': 'pila'})
+	});
 }
 
 document.getElementById('list_title_add').addEventListener('click', extra_buttons_listener);
