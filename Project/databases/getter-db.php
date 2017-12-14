@@ -20,6 +20,31 @@ function get_filters($username) {
     }
 }
 
+// Search keyword function.
+function search_keyword($username, $keyword) {
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM List WHERE title LIKE '%?%' OR tags LIKE '%?%' AND username = ?");
+    $stmt->execute(array($keyword, $keyword, $username));
+    $array_info = $stmt->fetch();
+
+    if ($array_info == ' ')
+        echo implode(',', $array_info);
+}
+
+// Gets lists created on a given time frame.
+function get_timeframe_lists($username, $timeframe) {
+    global $dbh;
+
+    if ($timeframe == 'today') {
+        $stmt = $dbh->prepare("SELECT * FROM List WHERE creation_date == ? AND username = ?");
+        $stmt->execute(array(date('Y/m/d'), $username));
+        $array_info = $stmt->fetch();
+
+        if ($array_info == ' ')
+            echo implode(',', $array_info);
+    }
+}
+
 // Getter for last ID of list.
 function get_new_list_id($username) {
   global $dbh;
