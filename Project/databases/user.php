@@ -1,5 +1,4 @@
 <?php
-
 include_once('includes/session.php');
 
 # Creates a new account (only if it already isn't on the database).

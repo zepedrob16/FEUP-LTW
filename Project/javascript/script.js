@@ -2,6 +2,10 @@ let todo_add_button = document.getElementById('todo_add_button');
 let post_it = document.getElementById('list_adder');
 let todo_title = document.createElement('input');
 
+window.onload = function() {
+	ajax_update({'function': 'init_list'});
+}
+
 /* Listener for the title. */
 let keydown_title_listener = function(event) {
 	
@@ -71,7 +75,7 @@ todo_add_button.addEventListener('click', (event) => {
 /* Creates a new bullet point element. */
 function bullet_factory() {	
 	let bullet = document.createElement('input');
-	
+
 	bullet.setAttribute('id', 'item');
 	bullet.setAttribute('type', 'text');
 	bullet.setAttribute('placeholder', 'Item');
@@ -81,7 +85,7 @@ function bullet_factory() {
 			if (bullet.value == '')
 				return;
 
-			ajax_update_list({'title': 'penis'});
+			//ajax_update({'function': 'add_bulletpoint'});
 
 			if (bullet.nextSibling == null) 
 				bullet_factory();
@@ -138,11 +142,11 @@ function ajax_encode(data) {
 	}).join('&');
 }
 
-function ajax_update_list(data) {
+function ajax_update(data) {
 	let request = new XMLHttpRequest();
 	request.onload = ajax_request_listener;
 
-	request.open('POST', "databases/save-list.php", true);
+	request.open('POST', "setter-db.php", true);
 	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	request.send(ajax_encode(data));
 }

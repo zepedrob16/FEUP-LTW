@@ -47,9 +47,7 @@
             <div id="info">
                 
                 <span id="cropPic">
-
                     <img id="profilePic" src="resources/avatars/<?php get_avatar_name($_SESSION['username']); ?>">
-
                 </span>
 
                 <span id="fullName">

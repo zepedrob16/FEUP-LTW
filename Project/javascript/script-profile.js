@@ -1,22 +1,21 @@
 /**
- *	Profile picture upload handler.
+ *	Previews the user's uploaded avatar.
+ *	Sends AJAX call to update the database with the new avatar.
 **/
 submit_button.addEventListener('click', (event) => {
+	let reader = new FileReader();
+
 	let name = upload_button.files[0]['name'];
 	let extension = upload_button.files[0]['type'];
 	let size = upload_button.files[0]['size'];
 	let last_modified = upload_button.files[0]['lastModified'];
 
-	let reader = new FileReader();
-	reader.onloadend = function () {
-    	document.getElementById('profilePic').src = reader.result;
+	reader.onload = function () {
+		document.getElementById('profilePic').src = reader.result;
+		ajax_update({'function': 'upload_file', 'raw': reader.result, 'name': name, 'extension': extension, 'size': size, 'last_modified': last_modified});
   	}
-
-  	
-  	
+  	reader.readAsDataURL(upload_button.files[0]);
 	event.preventDefault();
-
-	ajax_update({'function': 'upload_file', 'name': name, 'extension': extension, 'size': size, 'last_modified': last_modified});
 });
 
 /**
