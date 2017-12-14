@@ -110,9 +110,20 @@
                         echo "<i class='fa fa-thermometer-full' id='thermometer' aria-hidden='true'></i>";
                         }
                     echo "</span>";
-                    echo "<span id = 'list_tags'>";
-                        echo $row['tags'];
-                    echo "</span>";
+                    echo "<div id = 'list_tags'>";
+                        $string_tags = $row['tags'];
+                        $array_tags = explode(', ', $string_tags);
+
+                        $i = 0;
+
+                        while ($i < count($array_tags)) {
+                            echo "<span>";
+                            echo $array_tags[$i];
+                            echo "</span>";
+                            $i++;
+                        }
+
+                    echo "</div>";
                 echo "</div>";
                 }?>
             </div>
