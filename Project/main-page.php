@@ -74,7 +74,8 @@
                 $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
                 $stmt->execute(array($_SESSION['username']));
                 while($row = $stmt->fetch()) {
-                echo "<div id='single_list'>";
+                echo "<div id='single_list' unique_id=".$row['id_list'].">";
+
                     echo "<span id = 'list_title'>";
                         echo $row['title'];
                     echo "</span>";
@@ -82,17 +83,22 @@
                         echo $row['creation_date'];
                     echo "</span>";
                     echo "<div id = 'bulletpoints'>";
-                        $stmt2 = $dbh->prepare("SELECT DISTINCT content FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ?");
-                        $stmt2->execute(array($_SESSION['username'], $row['id_list']));
+                        $stmt2 = $dbh->prepare("SELECT DISTINCT * FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ? AND L.id_list = ?");
+                        $stmt2->execute(array($_SESSION['username'], $row['id_list'], $row['id_list']));
                         while($second_row = $stmt2->fetch()) {
-                        echo "<span id='single_bulletpoint'>";
-                            echo "<i class='fa fa-square-o' aria-hidden='true'></i>";
+                        echo "<label class='single_bulletpoint' unique_id=".$second_row['id_bp'].">";
                             echo $second_row['content'];
-                        echo "</span>";
+                            if($second_row['checked'] == 0){
+                                echo "<input type='checkbox'>";
+                            } else {
+                                echo "<input type='checkbox' checked>";
+                            }
+                            echo "<span class='checkmark'></span>";
+                        echo "</label>";
                         }
                     echo "</div>";
                     echo "<span id = 'list_priority'>";
-                        if($row['priority'] == 3){
+                        if($row['priority'] == 1){
                         echo "<i class='fa fa-thermometer-empty' id='thermometer' aria-hidden='true'></i>";
                         } else if($row['priority'] == 2){
                         echo "<i class='fa fa-thermometer-half' id='thermometer' aria-hidden='true'></i>";
