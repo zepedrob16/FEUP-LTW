@@ -45,8 +45,8 @@ else if ($function == 'add_bulletpoint') {
 
 else if ($function == 'update_bulletpoint') {
 	global $dbh;
-	$stmt = $dbh->prepare("UPDATE Bulletpoint SET content = ?, checked = ? WHERE id_list = ?");
-	return $stmt->execute(array($_POST['content'], $_POST['checked'], $_POST['id_list'])); 
+	$stmt = $dbh->prepare("UPDATE Bulletpoint SET content = ?, checked = ? WHERE id_bp = ?");
+	return $stmt->execute(array($_POST['content'], $_POST['checked'], $_POST['id_bp'])); 
 }
 
 else if ($function == 'delete_bulletpoint') {

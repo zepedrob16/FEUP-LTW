@@ -66,7 +66,11 @@ let every_bulletpoint = document.getElementsByClassName('single_bulletpoint');
 
 for (let i = 0; i < every_bulletpoint.length; i++) {
 	every_bulletpoint[i].addEventListener('click', (event) => {
-		ajax_update({'function': 'update_bulletpoint', 'content': 'pila', 'checked': 'pila', 'id_list': 'pila'})
+
+		let id_bp = every_bulletpoint[i].getAttribute('unique_id');
+		console.log(id_bp);
+
+		ajax_update({'function': 'update_bulletpoint', 'content': every_bulletpoint[i].textContent, 'checked': 'pila', 'id_bp': id_bp});
 	});
 }
 

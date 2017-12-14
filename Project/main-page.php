@@ -23,7 +23,7 @@
                 <div id="headerDropdown">
                     <a href="profile.php">Profile</a>
                     <a href="#">Archived</a>
-                    <a href="index.html">Logout</a>
+                    <a href="sign-out.php">Logout</a>
                 </div>
             </span>
             <span id="searchBox">
