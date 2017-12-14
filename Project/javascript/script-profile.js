@@ -1,9 +1,10 @@
+let upload_profile_pic = document.getElementById('upload_file');
+
 /**
  *	Previews the user's uploaded avatar.
  *	Sends AJAX call to update the database with the new avatar.
 **/
-submit_button.addEventListener('click', (event) => {
-	let reader = new FileReader();
+upload_profile_pic.addEventListener('change', (event) => {
 
 	let name = upload_button.files[0]['name'];
 	let extension = upload_button.files[0]['type'];
@@ -16,6 +17,8 @@ submit_button.addEventListener('click', (event) => {
   	}
   	reader.readAsDataURL(upload_button.files[0]);
 	event.preventDefault();
+
+	ajax_update({'function': 'upload_file', 'name': name, 'extension': extension, 'size': size, 'last_modified': last_modified});
 });
 
 /**

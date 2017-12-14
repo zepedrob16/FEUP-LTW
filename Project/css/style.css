@@ -1,3 +1,7 @@
+/*********************************************************
+*------------------GLOBAL POSITIONING--------------------*
+**********************************************************/
+
 html{
     height: 100%;
     width: 100%;
@@ -35,7 +39,9 @@ html{
      "footer      footer        footer      footer";
 }
 
-/*-----------------HEADER HANDLING---------------------*/
+/*********************************************************
+*--------------------------HEADER------------------------*
+**********************************************************/
 
 /*General coloring and positioning*/
 body > header {
@@ -66,23 +72,25 @@ body > header h1 {
     color: #A9A9A9;
 }
 
+/*Header dropdown positioning*/
 body > header #headerMenu{
     float: right;
     padding-right: 1em;
     padding-top: 0.3em;
 }
 
+/*Header dropdown styling*/
 body > header #headerMenu button{
     border: none;
     background-color: #f7f7f7;
 }
 
-/*Settings buttons*/
+/*Settings icon color*/
 body > header #headerMenu button i{
     color: #A9A9A9;
 }
 
-/*Search button*/
+/*Search box button*/
 body > header #searchBox{
     float:right;
     padding-right: 0.55em;
@@ -109,9 +117,11 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
-/*----------------MAIN CONTENT HANDLING------------------*/
+/*********************************************************
+*----------------------MAIN CONTENT----------------------*
+**********************************************************/
 
-/*General positioning*/
+/*Main page and profile page positioning*/
 .main .content {
     grid-area: main;
     padding-top: 2em;
@@ -123,6 +133,7 @@ body > header #searchBox #filtersubmit {
     background-color: white;
 }
 
+/*Login and register page positioning*/
 .login .content{
     grid-area: main;
     line-height: 2em;
@@ -134,7 +145,7 @@ body > header #searchBox #filtersubmit {
     padding: 1em;
 }
 
-/*Sign in page positioning and coloring*/
+/*Login and Register page positioning and coloring*/
 .content span{
     display: block;
 }
@@ -146,11 +157,6 @@ body > header #searchBox #filtersubmit {
 
 .content span a:hover{
     text-decoration: underline;
-}
-
-.content #lists{
-    width: 30%;
-    background-color: #f7f7f7;
 }
 
 #signIn form {
@@ -166,6 +172,7 @@ body > header #searchBox #filtersubmit {
     display: block;
 }
 
+/*Text inputs styling and positioning*/
 #signIn form #inputVar {
     padding: 12px 27px;
     margin: 8px 0;
@@ -175,6 +182,7 @@ body > header #searchBox #filtersubmit {
     box-sizing: border-box;
 }
 
+/*User icon postioning*/
 #signIn form #userIcon {
     position: relative;
     z-index: 1;
@@ -183,6 +191,7 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
+/*Password icon postioning*/
 #signIn form #lockIcon {
     position: relative;
     z-index: 1;
@@ -191,6 +200,7 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
+/*Email icon postioning*/
 #signIn form #emailIcon {
     position: relative;
     z-index: 1;
@@ -199,6 +209,7 @@ body > header #searchBox #filtersubmit {
     width: 0;
 }
 
+/*Submit button posioning and coloring*/
 #signIn form #submit {
     background-color: #4CAF50;
     color: white;
@@ -218,6 +229,26 @@ body > header #searchBox #filtersubmit {
     padding-top: 1em;
 }
 
+.content #list_title_add{
+    width: 50%;
+    margin-bottom: 1em;
+    padding: 1em;
+    padding-left: 0em;
+    padding-bottom: 0em;
+    border: none;
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.content #list_title_add:hover{
+    border-bottom: 1px solid black;
+}
+
+.content #list_title_add:focus{
+    border-bottom: 1px solid black;
+    color: black;
+}
+
+/*------------------List editor------------------*/
 #item{
     width:45%;
     padding: 0.2em;
@@ -237,7 +268,7 @@ body > header #searchBox #filtersubmit {
     background-color: #eee;
 }
 
-.content #list_title{
+.content > #list_title{
     width: 75%;
     padding: 0.5em;
     margin: 8px 0;
@@ -261,7 +292,7 @@ body > header #searchBox #filtersubmit {
     background-color: #4CAF65;
 }
 
-.content #hashtags{
+.content #list_tags{
     width:15%;
     padding: 0.2em;
     border: 1px solid #A9A9A9;
@@ -282,7 +313,7 @@ body > header #searchBox #filtersubmit {
     content: '#';
 }
 
-/*Add a list button*/
+/*Add an add list button*/
 .content #todo_add_button {
     width: auto;
     border: none;
@@ -290,13 +321,89 @@ body > header #searchBox #filtersubmit {
     float: right;
 }
 
+/*------------------Saved Lists------------------*/
 .content .savedLists{
-    display: flex;
-    background-color: #f7f7f7;
-    border: 1px solid #a9a9a9;
-    border-radius: 4px;
+    width: 95%;
+    length: 100%;
+    margin-left: 1em;
+
+    display: grid;
+    text-align: left;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+    grid-auto-rows: min-content;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 225px 225px 225px;
+    grid-template-areas:
+     "list list list"
+     "list list list"
+     "list list list"
 }
 
+.content .savedLists #single_list{
+    background-color: #f7f7f7;
+    border: 1px solid #a9a9a9;
+    font-size: 0.9em;
+
+    display: grid;
+    grid-template-rows: 35px auto 35px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+     "title"
+     "items"
+     "footer"
+}
+
+.content .savedLists #single_list #list_title{
+    grid-area: title;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+    padding-left: 0.8em;
+    overflow: hidden;
+}
+
+.content .savedLists #single_list #list_date{
+    grid-area: title;
+    font-size: 0.75em;
+    color: #a9a9a9;
+    text-align: right;
+    padding-right: 1em;
+}
+
+.content .savedLists #single_list #list_tags{
+    width: 70%;
+    grid-area: footer;
+    height: auto;
+    border: none;
+    margin-bottom: 5px;
+    padding: 0px;
+}
+
+.content .savedLists #single_list #list_priority{
+    grid-area: footer;
+    line-height: 0.1em;
+    font-size: 1.3em;
+    color: green;
+    text-align: right;
+    position: relative;
+    right: 10px;
+    top: 5px;
+}
+
+.content .savedLists #single_list #bulletpoints{
+    grid-area: items;
+    display: block;
+    text-align: left;
+    padding-left: 1.2em;
+    padding-top: 0.5em;
+}
+
+.content .savedLists #single_list #bulletpoints #single_bulletpoint i{
+    padding-right: 1em; 
+}
+
+/*------------------Profile----------------------*/
 .content #profilePic{
     display: block;
     margin: 0 auto;
@@ -387,7 +494,7 @@ body > header #searchBox #filtersubmit {
     color: black;
 }
 
-.categories #sortByFilter button.active{
+.categories #sortByFilter button:focus{
     border-bottom: 1px solid black;
     color: black;
 }
@@ -498,40 +605,65 @@ footer span{
     }
 }
 
- /* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ /* Customize the label (the container) */
+.single_bulletpoint {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+/* Hide the browser's default checkbox */
+.single_bulletpoint input {
+  position: absolute;
+  opacity: 0;
 }
 
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+/* On mouse-over, add a grey background color */
+.single_bulletpoint:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.single_bulletpoint input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.single_bulletpoint input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.single_bulletpoint .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 } 

@@ -66,67 +66,56 @@
             </div>
         </aside>
         <div class="content">
-            <button id="todo_add_button" type="submit"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                <form id="list_adder" onsubmit="return false;"></form>
-            </div>
-        </div>
-
-
-        <div class="savedLists">
-            <?php
+            <input type="text" name="title" id="list_title_add" placeholder="Title..." required>
+            <div class="savedLists">
+                <?php
                 include_once("includes/session.php");
                 global $dbh;
                 $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
                 $stmt->execute(array($_SESSION['username']));
-
                 while($row = $stmt->fetch()) {
-
-                    echo "<div>";
+                echo "<div id='single_list' unique_id=".$row['id_list'].">";
 
                     echo "<span id = 'list_title'>";
-                    echo $row['title'];
+                        echo $row['title'];
                     echo "</span>";
-
                     echo "<span id = 'list_date'>";
-                    echo $row['creation_date'];
+                        echo $row['creation_date'];
                     echo "</span>";
-
-                    echo "<span id = 'list_priority'>";
-                    echo $row['priority'];
-                    echo "</span>";
-
-                    echo "<span id = 'list_tags'>";
-                    echo $row['tags'];
-                    echo "</span>";
-
                     echo "<div id = 'bulletpoints'>";
-
-                    $stmt2 = $dbh->prepare("SELECT DISTINCT content FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ?");
-                    $stmt2->execute(array($_SESSION['username'], $row['id_list']));
-
-                    while($second_row = $stmt2->fetch()) {
-
-                    echo "<span>";
-                    echo $second_row['content'];
+                        $stmt2 = $dbh->prepare("SELECT DISTINCT * FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ? AND L.id_list = ?");
+                        $stmt2->execute(array($_SESSION['username'], $row['id_list'], $row['id_list']));
+                        while($second_row = $stmt2->fetch()) {
+                        echo "<label class='single_bulletpoint' unique_id=".$second_row['id_bp'].">";
+                            echo $second_row['content'];
+                            if($second_row['checked'] == 0){
+                                echo "<input type='checkbox'>";
+                            } else {
+                                echo "<input type='checkbox' checked>";
+                            }
+                            echo "<span class='checkmark'></span>";
+                        echo "</label>";
+                        }
+                    echo "</div>";
+                    echo "<span id = 'list_priority'>";
+                        if($row['priority'] == 1){
+                        echo "<i class='fa fa-thermometer-empty' id='thermometer' aria-hidden='true'></i>";
+                        } else if($row['priority'] == 2){
+                        echo "<i class='fa fa-thermometer-half' id='thermometer' aria-hidden='true'></i>";
+                        } else {
+                        echo "<i class='fa fa-thermometer-full' id='thermometer' aria-hidden='true'></i>";
+                        }
                     echo "</span>";
-
-                    }
-
-                    echo "</div>";
-
-                    echo "</div>";
+                    echo "<span id = 'list_tags'>";
+                        echo $row['tags'];
+                    echo "</span>";
+                echo "</div>";
                 }?>
+            </div>
         </div>
-    </div>
-
-    <footer>
-        © 2017
-        <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
-    </footer>
-</body>
+        <footer>
+            © 2017
+            <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
+        </footer>
+    </body>
 </html>
