@@ -66,7 +66,11 @@
             </div>
         </aside>
         <div class="content">
-            <input type="text" name="title" id="list_title_add" placeholder="Title..." required>
+            
+            <div id="new_list" unique_id= <?php include_once("databases/getter-db.php"); get_new_list_id($_SESSION['username']) ?>>
+                <input type="text" name="title" id="list_title_add" placeholder="Title..." required>
+            </div>
+
             <div class="savedLists">
                 <?php
                 include_once("includes/session.php");

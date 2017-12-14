@@ -1,16 +1,18 @@
-let todo_add_button = document.getElementById('todo_add_button');
-let post_it = document.getElementById('list_adder');
-let todo_title = document.createElement('input');
+let post_it = document.getElementById('new_list');
 
 window.onload = function() {
 	ajax_update({'function': 'init_list'});
 }
 
 /* Listener for the title. */
-let keydown_title_listener = function(event) {
+document.getElementById('list_title_add').addEventListener('keydown', (event) => {
 	
 	if (event.keyCode == 13) {
 		let first_item = document.getElementById('item'); // First element item sibling.
+
+		let title_unique_id = document.getElementById('new_list').getAttribute('unique_id');
+		let title_content = document.getElementById('list_title_add').value;
+		ajax_update({'function': 'update_title', 'title': title_content, 'id_list': title_unique_id});
 
 		if (first_item == null) {
 			bullet_factory();
@@ -19,26 +21,9 @@ let keydown_title_listener = function(event) {
 		else
 			first_item.focus();
 	}
-}
+});
 
-todo_add_button.addEventListener('click', (event) => {
-
-	// Reset the to-do list by deleting the title and every bullet.
-	while (post_it.firstChild)
-		post_it.removeChild(post_it.firstChild);
-
-	// Creates a new title element.
-	let new_todo_title = document.createElement('input');
-	new_todo_title.setAttribute('class', 'content');
-	new_todo_title.setAttribute('id', 'list_title');
-	new_todo_title.setAttribute('type', 'text');
-	new_todo_title.setAttribute('placeholder', 'Title');
-
-	new_todo_title.addEventListener('keydown', keydown_title_listener, false);
-
-	post_it.append(new_todo_title);
-	new_todo_title.focus();
-	todo_title = new_todo_title;
+let extra_buttons_listener = function() {
 
 	// Creates a DONE button.
 	let save_button = document.createElement('button');
@@ -70,7 +55,11 @@ todo_add_button.addEventListener('click', (event) => {
 	});
 
 	post_it.appendChild(hashtags_input);
-});
+
+	document.getElementById('list_title_add').removeEventListener('click', extra_buttons_listener); // Only run once.
+}
+
+document.getElementById('list_title_add').addEventListener('click', extra_buttons_listener);
 
 /* Creates a new bullet point element. */
 function bullet_factory() {	
@@ -96,12 +85,10 @@ function bullet_factory() {
 			event.preventDefault(); // Prevents deletion of last char of previous bulletpoint.
 			bullet.remove();
 
-			let prev_list_item = document.querySelector('#list_adder > #item:last-child');
-			console.log(prev_list_item);
+			let prev_list_item = document.querySelector('#new_list > #item:last-child');
 			
-			if (prev_list_item == null) { // Adds listener to title if backspace brings user from item to it.
-				document.getElementById('list_title').focus();
-			}
+			if (prev_list_item == null)	// Adds listener to title if backspace brings user from item to it.
+				document.getElementById('list_title_add').focus();
 
 			else if (prev_list_item.id == 'item')
 				prev_list_item.focus();
@@ -154,32 +141,3 @@ function ajax_update(data) {
 function ajax_request_listener() {
 	console.log(this.responseText);
 }
-
-
-
-
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("todo_add_button");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-} 

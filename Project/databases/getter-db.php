@@ -18,6 +18,15 @@ function get_filters($username) {
     }
 }
 
+// Getter for last ID of list.
+function get_new_list_id($username) {
+  global $dbh;
+  $stmt = $dbh->prepare("SELECT id_list FROM List WHERE username = ? ORDER BY id_list DESC LIMIT 1");
+  $stmt->execute(array($username));
+  $array_info = $stmt->fetch();
+  print implode(',', $array_info);
+}
+
 // Getter for information relative to USER.
 function get_name($username) {
  	global $dbh;

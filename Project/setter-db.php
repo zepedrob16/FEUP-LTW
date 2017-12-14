@@ -19,18 +19,40 @@ else if ($function == 'init_list') {
 	return $stmt->execute(array($session_username, '', date('Y/m/d'), 1, ''));
 }
 
-else if ($function == 'update_title') {
+else if ($function == 'delete_list') {
 	global $dbh;
-	$stmt = $dbh->prepare("UPDATE List SET title = ?");
-	return $stmt->execute(array($_POST['title']));
+	$stmt = $dbh->prepare("DELETE FROM List WHERE id_list = ?");
+	return $stmt->execute(array($_POST['id_list'])); 	
 }
 
-/*else if ($function == 'add_bulletpoint') {
+else if ($function == 'update_title') {
 	global $dbh;
-	$title = $_POST['title'];
+	$stmt = $dbh->prepare("UPDATE List SET title = ? WHERE id_list = ?");
+	return $stmt->execute(array($_POST['title'], $_POST['id_list']));
+}
 
-	$stmt = $dbh->prepare('INSERT INTO Bulletpoint VALUES (?, '', 0, ?)');
-	return $stmt->execute(array(5, 'admin', $title, '2017/12/12', 3, 'food'));
-}*/
+else if ($function == 'update_priority') {
+	global $dbh;
+	$stmt = $dbh->prepare("UPDATE List SET priority = ? WHERE id_list = ?");
+	return $stmt->execute(array($_POST['priority'], $_POST['id_list']));
+}
+
+else if ($function == 'add_bulletpoint') {
+	global $dbh;
+	$stmt = $dbh->prepare("INSERT INTO Bulletpoint(content, checked, id_list) VALUES ('', 0, ?)");
+	return $stmt->execute(array($_POST[id_list]));
+}
+
+else if ($function == 'update_bulletpoint') {
+	global $dbh;
+	$stmt = $dbh->prepare("UPDATE Bulletpoint SET content = ?, checked = ? WHERE id_list = ?");
+	return $stmt->execute(array($_POST['content'], $_POST['checked'], $_POST['id_list'])); 
+}
+
+else if ($function == 'delete_bulletpoint') {
+	global $dbh;
+	$stmt = $dbh->prepare("DELETE FROM Bulletpoint WHERE id_bp = ?");
+	return $stmt->execute(array($_POST['id_bp'])); 	
+}
 
 ?>
