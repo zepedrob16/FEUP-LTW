@@ -13,6 +13,10 @@
         ?>
     </head>
     <body class="main">
+
+        <form action="user.php" method="post">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+        </form>
         <header id="mainHeader">
             <span id="title">
                 <!--<img src="resources/logo.png" width="50"/>-->
