@@ -8,7 +8,10 @@ include_once('includes/session.php');
 function new_account($username, $password, $first_name, $last_name, $email) {
 	global $dbh;
     $stmt = $dbh->prepare('INSERT INTO User VALUES (?, ?, ?, ?)');
-    return $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT), $first_name . " " . $last_name, $email));
+    $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT), $first_name . " " . $last_name, $email));
+
+    $stmt = $dbh->prepare('INSERT INTO Image(name, extension, size, last_modified, username) VALUES (?, ?, ?, ?, ?)');
+    return $stmt->execute(array('default-avatar.png', 'image/png', '0', '0', $username));
 }
 
 # Tries to match login credentials on the database.
