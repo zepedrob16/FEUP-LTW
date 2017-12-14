@@ -66,74 +66,50 @@
             </div>
         </aside>
         <div class="content">
-            <button id="todo_add_button" type="submit"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                <form id="list_adder" onsubmit="return false;"></form>
-            </div>
-        </div>
-
-
-        <div class="savedLists">
-            <?php
+            <input type="text" name="title" id="list_title_add" placeholder="Title..." required>
+            <div class="savedLists">
+                <?php
                 include_once("includes/session.php");
                 global $dbh;
                 $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
                 $stmt->execute(array($_SESSION['username']));
-
                 while($row = $stmt->fetch()) {
-
-                    echo "<div id='single_list'>";
-
+                echo "<div id='single_list'>";
                     echo "<span id = 'list_title'>";
-                    echo $row['title'];
+                        echo $row['title'];
                     echo "</span>";
-
                     echo "<span id = 'list_date'>";
-                    echo $row['creation_date'];
+                        echo $row['creation_date'];
                     echo "</span>";
-
                     echo "<div id = 'bulletpoints'>";
-
-                    $stmt2 = $dbh->prepare("SELECT DISTINCT content FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ?");
-                    $stmt2->execute(array($_SESSION['username'], $row['id_list']));
-
-                    while($second_row = $stmt2->fetch()) {
-
-                    echo "<span id='single_bulletpoint'>";
-                    echo "<i class='fa fa-square-o' aria-hidden='true'></i>";
-                    echo $second_row['content'];
-                    echo "</span>";
-
-                    }
-
+                        $stmt2 = $dbh->prepare("SELECT DISTINCT content FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ?");
+                        $stmt2->execute(array($_SESSION['username'], $row['id_list']));
+                        while($second_row = $stmt2->fetch()) {
+                        echo "<span id='single_bulletpoint'>";
+                            echo "<i class='fa fa-square-o' aria-hidden='true'></i>";
+                            echo $second_row['content'];
+                        echo "</span>";
+                        }
                     echo "</div>";
-
                     echo "<span id = 'list_priority'>";
-                    if($row['priority'] == 3){
+                        if($row['priority'] == 3){
                         echo "<i class='fa fa-thermometer-empty' id='thermometer' aria-hidden='true'></i>";
-                    } else if($row['priority'] == 2){
+                        } else if($row['priority'] == 2){
                         echo "<i class='fa fa-thermometer-half' id='thermometer' aria-hidden='true'></i>";
-                    } else {
+                        } else {
                         echo "<i class='fa fa-thermometer-full' id='thermometer' aria-hidden='true'></i>";
-                    }
+                        }
                     echo "</span>";
-
                     echo "<span id = 'list_tags'>";
-                    echo $row['tags'];
+                        echo $row['tags'];
                     echo "</span>";
-
-                    echo "</div>";
+                echo "</div>";
                 }?>
+            </div>
         </div>
-    </div>
-
-    <footer>
-        © 2017
-        <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
-    </footer>
-</body>
+        <footer>
+            © 2017
+            <span>Currently logged in as <?php echo $_SESSION['username'] ?></span>
+        </footer>
+    </body>
 </html>

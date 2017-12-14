@@ -229,6 +229,25 @@ body > header #searchBox #filtersubmit {
     padding-top: 1em;
 }
 
+.content #list_title_add{
+    width: 50%;
+    margin-bottom: 1em;
+    padding: 1em;
+    padding-left: 0em;
+    padding-bottom: 0em;
+    border: none;
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.content #list_title_add:hover{
+    border-bottom: 1px solid black;
+}
+
+.content #list_title_add:focus{
+    border-bottom: 1px solid black;
+    color: black;
+}
+
 /*------------------List editor------------------*/
 #item{
     width:45%;
@@ -304,15 +323,16 @@ body > header #searchBox #filtersubmit {
 
 /*------------------Saved Lists------------------*/
 .content .savedLists{
-    width: 100%;
+    width: 95%;
     length: 100%;
     margin-left: 1em;
-    align-self: left;
+
     display: grid;
+    text-align: left;
     grid-row-gap: 1em;
     grid-column-gap: 1em;
-    grid-template-rows: 200px 200px 200px;
-    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
      "list list list"
      "list list list"
@@ -323,11 +343,18 @@ body > header #searchBox #filtersubmit {
     background-color: #f7f7f7;
     border: 1px solid #a9a9a9;
     font-size: 0.9em;
-    position: relative;
+
+    display: grid;
+    grid-template-rows: 35px auto 35px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+     "title"
+     "items"
+     "footer"
 }
 
 .content .savedLists #single_list #list_title{
-    width: 60%;
+    grid-area: title;
     font-weight: bold;
     text-decoration: underline;
     text-align: left;
@@ -336,28 +363,35 @@ body > header #searchBox #filtersubmit {
 }
 
 .content .savedLists #single_list #list_date{
-    width: 60%;
-    line-height: 0.3em;
+    grid-area: title;
     font-size: 0.75em;
     color: #a9a9a9;
-    text-align: left;
-    padding-left: 1em;
+    text-align: right;
+    padding-right: 1em;
 }
 
 .content .savedLists #single_list #list_tags{
-    float: right;
+    width: 70%;
+    grid-area: footer;
+    height: auto;
+    border: none;
+    margin-bottom: 5px;
+    padding: 0px;
 }
 
 .content .savedLists #single_list #list_priority{
+    grid-area: footer;
     line-height: 0.1em;
     font-size: 1.3em;
     color: green;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    text-align: right;
+    position: relative;
+    right: 10px;
+    top: 5px;
 }
 
 .content .savedLists #single_list #bulletpoints{
+    grid-area: items;
     display: block;
     text-align: left;
     padding-left: 1.2em;
@@ -606,4 +640,72 @@ footer span{
     color: black;
     text-decoration: none;
     cursor: pointer;
+} 
+
+
+
+
+
+
+ /* Customize the label (the container) */
+.single_bulletpoint {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.single_bulletpoint input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.single_bulletpoint:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.single_bulletpoint input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.single_bulletpoint input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.single_bulletpoint .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 } 
