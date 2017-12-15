@@ -323,23 +323,20 @@ body > header #searchBox #filtersubmit {
 
 /*------------------Saved Lists------------------*/
 .content .savedLists{
-    -webkit-column-count: 3; /* Chrome, Safari, Opera */
-  -moz-column-count: 3; /* Firefox */
-  column-count: 3;
-  -webkit-column-gap: .5rem; /* Chrome, Safari, Opera */
-  -moz-column-gap: .5rem; /* Firefox */
-  column-gap: .5rem;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: auto;
+    column-gap: 1em;
 }
 
 .content .savedLists #single_list{
     background-color: #f7f7f7;
     border: 1px solid #a9a9a9;
     font-size: 0.9em;
-    width: calc(100% / 1);
+    margin-bottom: 1em;
 
     display: grid;
-    grid-template-rows: 35px auto 35px;
+    grid-template-rows: 45px auto 35px;
     grid-template-columns: 1fr;
     grid-template-areas:
      "title"
@@ -347,12 +344,23 @@ body > header #searchBox #filtersubmit {
      "footer"
 }
 
+
+.content .savedLists #single_list #list_header{
+    display: inline-block;
+}
+
+.content .savedLists #single_list #list_header #header{
+    display: block;
+    width: 80%;
+    padding-top: 0.25em;
+}
+
 .content .savedLists #single_list #list_title{
     grid-area: title;
     font-weight: bold;
     text-decoration: underline;
     text-align: left;
-    padding-left: 0.8em;
+    padding-left: 0.4em;
     overflow: hidden;
 }
 
@@ -360,8 +368,24 @@ body > header #searchBox #filtersubmit {
     grid-area: title;
     font-size: 0.75em;
     color: #a9a9a9;
-    text-align: right;
-    padding-right: 1em;
+    text-align: left;
+    padding-left: 0.6em;
+    line-height: 0.3em;
+}
+
+.content .savedLists #single_list #list_header button{
+    grid-area: title;
+    float: right;
+    position: relative;
+    bottom: 25px;
+    right: 10px;
+    border: none;
+    background-color: #f7f7f7;
+}
+
+.content .savedLists #single_list #list_header button:hover{
+    color: red;
+    cursor: pointer;
 }
 
 .content .savedLists #single_list #list_tags{
@@ -388,16 +412,56 @@ body > header #searchBox #filtersubmit {
     grid-area: items;
     display: block;
     text-align: left;
-    padding-left: 1.2em;
     padding-top: 0.5em;
+}
+
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection{
+    display: block;
+}
+
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection .item {
+    width: 80%;
+    padding: 0.8em;
+    margin-left: 1em;
+    border: none;
+    border-bottom: 1px solid #a9a9a9;
+    padding-bottom: 0px;
+    background-color: #f7f7f7;
+}
+
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection .item:hover{
+    background-color: #d1d1d1;
+}
+
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection button {
+    float: right;
+    position: relative;
+    bottom: 35px;
+    right: 10px;
+    border: none;
+    background-color: #f7f7f7;
+    height: 28px;
+}
+
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection #delete_item:hover {
+    color: red;
+}
+
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection #edit_item:hover {
+    color: green;
 }
 
 .content .savedLists #single_list #bulletpoints .single_bulletpoint_add{
     grid-area: items;
-    display: block;
-    text-align: left;
-    padding-left: 1.2em;
-    padding-top: 0.5em;
+    width: 80%;
+    margin-top: 1em;
+    padding: 0.8em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    border: none;
+    border-bottom: 1px solid #a9a9a9;
+    padding-bottom: 0px;
+    background-color: #f7f7f7;
 }
 
 /*------------------Profile----------------------*/

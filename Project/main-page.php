@@ -70,7 +70,6 @@
             <div id="new_list" unique_id= <?php include_once("databases/getter-db.php"); get_new_list_id($_SESSION['username']) ?>>
                 <input type="text" name="title" id="list_title_add" placeholder="Title..." required>
             </div>
-
             <div class="savedLists">
                 <?php
                 include_once("includes/session.php");
@@ -79,32 +78,29 @@
                 $stmt->execute(array($_SESSION['username']));
                 while($row = $stmt->fetch()) {
                 echo "<div id='single_list' unique_id=".$row['id_list'].">";
-
-                    echo "<span id = 'list_title'>";
-                        echo $row['title'];
-                    echo "</span>";
-                    echo "<span id = 'list_date'>";
-                        echo $row['creation_date'];
-                    echo "</span>";
+                    echo "<div id='list_header'>";
+                        echo "<div id='header'>";
+                            echo "<span id = 'list_title'>";
+                                echo $row['title'];
+                            echo "</span>";
+                            echo "<span id = 'list_date'>";
+                                echo $row['creation_date'];
+                            echo "</span>";
+                        echo "</div>";
+                        echo "<button><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
+                    echo "</div>";
                     echo "<div id = 'bulletpoints'>";
                         $stmt2 = $dbh->prepare("SELECT DISTINCT * FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ? AND L.id_list = ?");
                         $stmt2->execute(array($_SESSION['username'], $row['id_list'], $row['id_list']));
+                        echo "<div class = 'bulletpoint_selection'>";
                         while($second_row = $stmt2->fetch()) {
-                        echo "<label class='single_bulletpoint' unique_id=".$second_row['id_bp'].">";
-                            echo $second_row['content'];
-                            if($second_row['checked'] == 0){
-                                echo "<input type='checkbox'>";
-                            } else {
-                                echo "<input type='checkbox' checked>";
-                            }
-                            echo "<span class='checkmark'></span>";
-                        echo "</label>";
+                            echo "<input type='text' class='item' value=".$second_row['content']." unique_id=".$second_row['id_bp']." disabled>";
+                            echo "<button id='delete_item'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
+                            echo "<button id='edit_item'><i class='fa fa-pencil' aria-hidden='true'></i></button>";
                         }
+                        echo "</div>";
 
-                        echo "<label class='single_bulletpoint_add'>";
-                            echo "<input type='text' name='add_item' placeholder='Add an item...'>";
-                        echo "</label>";
-
+                        echo "<input type='text' name='add_item' class='single_bulletpoint_add' placeholder='Add an item...'>";
                     echo "</div>";
                     echo "<span id = 'list_priority'>";
                         if($row['priority'] == 1){
@@ -118,16 +114,13 @@
                     echo "<div id = 'list_tags'>";
                         $string_tags = $row['tags'];
                         $array_tags = explode(', ', $string_tags);
-
                         $i = 0;
-
                         while ($i < count($array_tags)) {
-                            echo "<span>";
+                        echo "<span>";
                             echo $array_tags[$i];
-                            echo "</span>";
-                            $i++;
+                        echo "</span>";
+                        $i++;
                         }
-
                     echo "</div>";
                 echo "</div>";
                 }?>

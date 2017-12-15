@@ -12,6 +12,7 @@
         include_once('includes/init.php');
         include_once('databases/user.php');
         include_once('includes/session.php');
+        include_once('databases/getter-db.php');
         ?>
     </head>
     <body class="main">
@@ -45,7 +46,7 @@
         <div class="content">
             <div id="info">
                 <span id="cropPic">
-                    <img id="profilePic" src="resources/avatars/<?php get_avatar_name($_SESSION['username']); ?>">
+                    <img id="profilePic" src="resources/avatars/<?php get_avatar_name($_SESSION['username']); ?>"/>
                 </span>
                 <span id="fullName">
                     <?php
