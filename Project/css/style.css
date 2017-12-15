@@ -443,11 +443,11 @@ body > header #searchBox #filtersubmit {
     height: 28px;
 }
 
-.content .savedLists #single_list #bulletpoints .bulletpoint_selection #delete_item:hover {
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection .delete_item:hover {
     color: red;
 }
 
-.content .savedLists #single_list #bulletpoints .bulletpoint_selection #edit_item:hover {
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection .edit_item:hover {
     color: green;
 }
 

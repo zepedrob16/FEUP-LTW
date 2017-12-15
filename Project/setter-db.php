@@ -22,7 +22,7 @@ else if ($function == 'update_user') {
 else if ($function == 'init_list') {
 	global $dbh;
 	$stmt = $dbh->prepare("INSERT INTO List(username, title, creation_date, priority, tags) VALUES (?, ?, ?, ?, ?)");
-	return $stmt->execute(array($session_username, '', date('Y/m/d'), 1, ''));
+	return $stmt->execute(array($session_username, $_POST['title'], date('Y/m/d'), 1, ''));
 }
 
 else if ($function == 'delete_list') {
@@ -45,8 +45,8 @@ else if ($function == 'update_priority') {
 
 else if ($function == 'add_bulletpoint') {
 	global $dbh;
-	$stmt = $dbh->prepare("INSERT INTO Bulletpoint(content, checked, id_list) VALUES ('', 0, ?)");
-	return $stmt->execute(array($_POST[id_list]));
+	$stmt = $dbh->prepare("INSERT INTO Bulletpoint(content, checked, id_list) VALUES (?, 0, ?)");
+	return $stmt->execute(array($_POST[content], $_POST[id_list]));
 }
 
 else if ($function == 'update_bulletpoint') {

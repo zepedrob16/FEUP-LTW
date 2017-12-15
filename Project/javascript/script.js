@@ -1,27 +1,73 @@
 let post_it = document.getElementById('new_list');
 
-window.onload = function() {
-	//ajax_update({'function': 'init_list'});
-}
-
 /* Listener for the title. */
 document.getElementById('list_title_add').addEventListener('keydown', (event) => {
 	
 	if (event.keyCode == 13) {
-		let first_item = document.getElementById('item'); // First element item sibling.
-
-		let title_unique_id = document.getElementById('new_list').getAttribute('unique_id');
-		let title_content = document.getElementById('list_title_add').value;
-		ajax_update({'function': 'update_title', 'title': title_content, 'id_list': title_unique_id});
-
-		if (first_item == null) {
-			bullet_factory();
-			document.getElementById('item').focus();
-		}
-		else
-			first_item.focus();
+		ajax_update({'function': 'init_list', 'title': document.getElementById('list_title_add').value});
+		document.getElementById('list_title_add').value = '';
 	}
 });
+
+let list_adders = document.getElementsByClassName('single_bulletpoint_add');
+for (let i = 0; i < list_adders.length; i++) {
+
+	list_adders[i].addEventListener('keydown', (event) => {
+		
+		if (event.keyCode == 13) {
+			let id_list = list_adders[i].parentNode.parentNode.getAttribute('unique_id');
+			ajax_update({'function': 'add_bulletpoint', 'content': list_adders[i].value, 'id_list': id_list});
+		}
+
+	});
+}
+
+let editables = document.getElementsByClassName('edit_item');
+for (let i = 0; i < editables.length; i++) {
+
+	editables[i].addEventListener('click', (event) => {
+		let editable = editables[i];
+		editable.removeAttribute('disabled');
+		editable.setAttribute('value', '');
+		editable.focus();
+	});
+}
+
+
+editables = document.getElementsByClassName('delete_item');
+for (let i = 0; i < editables.length; i++) {
+
+	editables[i].addEventListener('click', (event) => {
+		let id_bp = editables[i].getAttribute('unique_id');
+		ajax_update({'function': 'delete_bulletpoint', 'id_bp': id_bp});
+		editables[i].previousSibling.remove();
+		editables[i].nextSibling.remove();
+		editables[i].remove();
+	});
+}
+
+editables = document.getElementsByClassName('item');
+for (let i = 0; i < editables.length; i++) {
+
+	editables[i].addEventListener('focusout', (event) => {
+		editables[i].setAttribute('value', editables[i].value);
+		let id_bp = editables[i].getAttribute('unique_id');
+
+		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': 0, 'id_bp': id_bp});
+	});
+}
+
+let deletable = document.getElementsByClassName('delete_list_butt');
+for (let i = 0; i < deletable.length; i++) {
+
+	deletable[i].addEventListener('click', (event) => {
+		let unique_id = deletable[i].parentNode.parentNode.getAttribute('unique_id');
+		ajax_update({'function': 'delete_list', 'id_list': unique_id});
+		deletable[i].parentNode.parentNode.remove();
+	});
+}
+
+
 
 let extra_buttons_listener = function() {
 
