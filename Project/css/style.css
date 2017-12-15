@@ -631,3 +631,7 @@ footer span{
         line-height: 1em;
     }
 }
+
+#bulletpoints input[type=text].checked {
+    text-decoration: line-through !important;
+}

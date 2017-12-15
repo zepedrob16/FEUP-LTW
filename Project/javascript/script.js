@@ -39,26 +39,18 @@ let editables = document.getElementsByClassName('tick_item');
 for (let i = 0; i < editables.length; i++) {
 
 	editables[i].addEventListener('click', (event) => {
-		editables[i].checked = +!editables[i].checked;
-
-		if (editables[i].checked)
-			editables[i].style.textDecoration = "line-through";
-		else
-			editables[i].style.textDecoration = "";
-
-		let id_bp = editables[i].getAttribute('unique_id');
-		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': editables[i].checked, 'id_bp': id_bp});
-	});
-}
-
-editables = document.getElementsByClassName('tick_item');
-for (let i = 0; i < editables.length; i++) {
-
-	editables[i].addEventListener('click', (event) => {
-		editables[i].checked = +!editables[i].checked;
 		console.log(editables[i].checked);
+		let isChecked = 1;
+
+		if (editables[i].checked) {
+			isChecked = 0;
+		}
+		else
+			isChecked = 1;
+
+
 		let id_bp = editables[i].getAttribute('unique_id');
-		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': editables[i].checked, 'id_bp': id_bp});
+		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': isChecked, 'id_bp': id_bp});
 	});
 }
 

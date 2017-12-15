@@ -102,4 +102,12 @@ function get_avatar_name($username) {
     echo implode(',', $array_info);
 }
 
+function bulletpoint_is_checked($id_bp) {
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT checked FROM Bulletpoint WHERE id_bp = ?");
+    $stmt->execute(array($id_bp));
+    return $array_info = $stmt->fetch();
+}
+
+
 ?>

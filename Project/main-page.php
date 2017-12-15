@@ -70,7 +70,7 @@
                     echo "<div id='list_header'>";
                         echo "<div id='header'>";
                             echo "<span id = 'list_title'>";
-                                echo $row['title'];
+                                echo htmlentities($row['title']);
                             echo "</span>";
                             echo "<span id = 'list_date'>";
                                 echo $row['creation_date'];
@@ -83,7 +83,7 @@
                         $stmt2->execute(array($_SESSION['username'], $row['id_list'], $row['id_list']));
                         echo "<div class = 'bulletpoint_selection'>";
                         while($second_row = $stmt2->fetch()) {
-                            echo "<input type='text' class='item' value=".$second_row['content']." unique_id=".$second_row['id_bp']." disabled>";
+                            echo "<input type='text' class='item".($second_row['checked'] ? " checked'" : "'"). " disabled value=".htmlentities($second_row['content'])." unique_id=".$second_row['id_bp'].">";
                             echo "<button class='delete_item'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
                             echo "<button class='edit_item'><i class='fa fa-pencil' aria-hidden='true'></i></button>";
                             echo "<button class='tick_item'><i class='fa fa-check-circle' aria-hidden='true'></i></button>";
