@@ -89,7 +89,7 @@
                                 echo $row['creation_date'];
                             echo "</span>";
                         echo "</div>";
-                        echo "<button><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
+                        echo "<button class='delete_list_butt'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
                     echo "</div>";
                     echo "<div id = 'bulletpoints'>";
                         $stmt2 = $dbh->prepare("SELECT DISTINCT * FROM Bulletpoint B JOIN List L WHERE L.username = ? AND B.id_list = ? AND L.id_list = ?");
@@ -97,8 +97,9 @@
                         echo "<div class = 'bulletpoint_selection'>";
                         while($second_row = $stmt2->fetch()) {
                             echo "<input type='text' class='item' value=".$second_row['content']." unique_id=".$second_row['id_bp']." disabled>";
-                            echo "<button id='delete_item'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
-                            echo "<button id='edit_item'><i class='fa fa-pencil' aria-hidden='true'></i></button>";
+                            echo "<button class='delete_item'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
+                            echo "<button class='edit_item'><i class='fa fa-pencil' aria-hidden='true'></i></button>";
+                            echo "<button class='tick_item'><i class='fa fa-check-circle' aria-hidden='true'></i></button>";
                         }
                         echo "</div>";
 
