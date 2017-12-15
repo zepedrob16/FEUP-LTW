@@ -2,7 +2,7 @@ let post_it = document.getElementById('new_list');
 
 /* Listener for the title. */
 document.getElementById('list_title_add').addEventListener('keydown', (event) => {
-	
+
 	if (event.keyCode == 13) {
 		if (document.getElementById('list_title_add').value.length != 0) {
 			ajax_update({'function': 'init_list', 'title': document.getElementById('list_title_add').value});
@@ -15,7 +15,7 @@ let list_adders = document.getElementsByClassName('single_bulletpoint_add');
 for (let i = 0; i < list_adders.length; i++) {
 
 	list_adders[i].addEventListener('keydown', (event) => {
-		
+
 		if (event.keyCode == 13) {
 			let id_list = list_adders[i].parentNode.parentNode.getAttribute('unique_id');
 			ajax_update({'function': 'add_bulletpoint', 'content': list_adders[i].value, 'id_list': id_list});
@@ -23,6 +23,15 @@ for (let i = 0; i < list_adders.length; i++) {
 
 	});
 }
+
+document.getElementById('filter').addEventListener('keydown', (event) => {
+	if (event.keyCode == 13) {
+		let search_term = document.getElementById('filter').value;
+
+		let x = ajax_update({'function': 'search_keyword', 'keyword': search_term});
+
+	}
+});
 
 let editables = document.getElementsByClassName('edit_item');
 for (let i = 0; i < editables.length; i++) {
@@ -94,7 +103,7 @@ let extra_buttons_listener = function() {
 	hashtags_input.setAttribute('placeholder', 'Add tags...');
 
 	hashtags_input.addEventListener('keydown', (event) => {
-		
+
 		if (event.keyCode == 188) {
 			event.preventDefault();
 
@@ -131,7 +140,7 @@ for (let i = 0; i < every_bulletpoint.length; i++) {
 document.getElementById('list_title_add').addEventListener('click', extra_buttons_listener);
 
 /* Creates a new bullet point element. */
-function bullet_factory() {	
+function bullet_factory() {
 	let bullet = document.createElement('input');
 
 	bullet.setAttribute('id', 'item');
@@ -145,9 +154,9 @@ function bullet_factory() {
 
 			//ajax_update({'function': 'add_bulletpoint'});
 
-			if (bullet.nextSibling == null) 
+			if (bullet.nextSibling == null)
 				bullet_factory();
-			else 
+			else
 				bullet.nextSibling.focus(); // If it's behind bulletpoints, focus next.
 		}
 		else if (event.keyCode == 8 && bullet.value.length == 0) {
@@ -155,7 +164,7 @@ function bullet_factory() {
 			bullet.remove();
 
 			let prev_list_item = document.querySelector('#new_list > #item:last-child');
-			
+
 			if (prev_list_item == null)	// Adds listener to title if backspace brings user from item to it.
 				document.getElementById('list_title_add').focus();
 
@@ -166,7 +175,7 @@ function bullet_factory() {
 
 	post_it.append(bullet);
 	bullet.focus();
-}  
+}
 
 /**
  *	Project/ filters logic.
@@ -178,7 +187,7 @@ function switch_filter_tab(event, tab) {
 	for (let i = 0; i < tab_content.length; i++)
 		tab_content[i].style.display = 'none'; // Hide the content of every tab.
 
-	for (let i = 0; i < tab_links.length; i++) 
+	for (let i = 0; i < tab_links.length; i++)
 		tab_links[i].className = tab_links[i].className.replace('_active', '');
 
 	document.getElementById(tab).style.display = 'block';
