@@ -13,6 +13,12 @@ if ($function == 'upload_file') {
 	return $stmt->execute(array($_POST['name'], $_POST['extension'], $_POST['size'], $_POST['last_modified'], $session_username));
 }
 
+else if ($function == 'update_user') {
+	global $dbh;
+	$stmt = $dbh->prepare("UPDATE User SET password = ?, name = ?, email = ? WHERE username = ?");
+	return $stmt->execute(array(password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['name'], $_POST['email'], $session_username));
+}
+
 else if ($function == 'init_list') {
 	global $dbh;
 	$stmt = $dbh->prepare("INSERT INTO List(username, title, creation_date, priority, tags) VALUES (?, ?, ?, ?, ?)");

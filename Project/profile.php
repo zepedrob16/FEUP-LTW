@@ -48,28 +48,19 @@
                 <span id="cropPic">
                     <img id="profilePic" src="resources/avatars/<?php get_avatar_name($_SESSION['username']); ?>">
                 </span>
-                <span id="fullName">
-                    <?php
-                    include_once("databases/getter-db.php");
-                    get_name($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="username">
-                    <?php
-                    include_once("databases/getter-db.php");
-                    get_username($_SESSION['username']);
-                    ?>
-                </span>
-                <span id="email">
-                    <?php
-                    include_once("databases/getter-db.php");
-                    get_email($_SESSION['username']);
-                    ?>
-                </span>
+
+                <input id="fullName" value=<?php get_name($_SESSION['username']); ?> />
+                <div id="username"> <?php get_username($_SESSION['username']); ?> </div>
+                <input id="password" type="password" />
+                <input id="email" value=<?php get_email($_SESSION['username']); ?> />
+
                 <form id="upload_file" method="post" enctype="multipart/form-data">
                     <input id="upload_button" type="file" name="image" />
                     <input type="submit" name="submit" value="Upload" />
                 </form>
+
+                <button id="save_changes">Save changes</button>
+
             </div>
         </div>
         <footer>

@@ -22,6 +22,14 @@ upload_profile_pic.addEventListener('change', (event) => {
 	ajax_update({'function': 'upload_file', 'name': name, 'extension': extension, 'size': size, 'last_modified': last_modified});
 });
 
+document.getElementById('save_changes').addEventListener('click', (event) => {
+	let new_name = document.getElementById('fullName').value;
+	let new_password = document.getElementById('password').value;
+	let new_email = document.getElementById('email').value;
+
+	ajax_update({'function': 'update_user', 'password': new_password, 'name': new_name, 'email': new_email});
+});
+
 /**
  *	AJAX logic.
 **/

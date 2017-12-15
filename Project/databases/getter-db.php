@@ -72,7 +72,7 @@ function get_username($username) {
     $stmt->execute(array($username));   
     $array_info = $stmt->fetch();
     $string_version = implode(',', $array_info);
-    echo "Username: " . $string_version;
+    echo $string_version;
 }
 
 function get_email($username) {
@@ -81,7 +81,7 @@ function get_email($username) {
     $stmt->execute(array($username));   
     $array_info = $stmt->fetch();
     $string_version = implode(',', $array_info);
-    echo "Email: " . $string_version;
+    echo $string_version;
 }
 
 function get_lists($username) {
@@ -90,7 +90,7 @@ function get_lists($username) {
     $stmt->execute(array($username));   
     $array_info = $stmt->fetch();
     $string_version = implode(',', $array_info);
-    echo "Your Lists: " . $string_version;
+    echo $string_version;
 }
 
 function get_avatar_name($username) {
