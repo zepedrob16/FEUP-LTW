@@ -12,6 +12,7 @@
         include_once('includes/init.php');
         include_once('databases/user.php');
         include_once('includes/session.php');
+        include_once('databases/getter-db.php');
         ?>
     </head>
     <body class="main">

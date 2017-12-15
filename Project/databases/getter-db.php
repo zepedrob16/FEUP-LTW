@@ -93,4 +93,12 @@ function get_lists($username) {
     echo "Your Lists: " . $string_version;
 }
 
+function get_avatar_name($username) {
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT name FROM Image WHERE username = ?");
+    $stmt->execute(array($username));
+    $array_info = $stmt->fetch();
+    echo implode(',', $array_info);
+}
+
 ?>

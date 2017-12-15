@@ -5,6 +5,7 @@ let upload_profile_pic = document.getElementById('upload_file');
  *	Sends AJAX call to update the database with the new avatar.
 **/
 upload_profile_pic.addEventListener('change', (event) => {
+	let reader = new FileReader();
 
 	let name = upload_button.files[0]['name'];
 	let extension = upload_button.files[0]['type'];
