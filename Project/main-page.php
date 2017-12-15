@@ -26,7 +26,6 @@
                 <button type="button" id="dropdown"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
                 <div id="headerDropdown">
                     <a href="profile.php">Profile</a>
-                    <a href="#">Archived</a>
                     <a href="sign-out.php">Logout</a>
                 </div>
             </span>
@@ -51,7 +50,6 @@
                 </button>
             </div>
             <div id="sortByFilter">
-                <button class="tab_link" onclick="switch_filter_tab(event, 'project_tab_content')"><p>Projects</p></button>
                 <button class="tab_link" onclick="switch_filter_tab(event, 'filter_tab_content')"><p>Filters</p></button>
             </div>
             <div id="project_tab_content" class="tab_content">
@@ -109,24 +107,13 @@
                     echo "</div>";
                     echo "<span id = 'list_priority'>";
                         if($row['priority'] == 1){
-                        echo "<i class='fa fa-thermometer-empty' id='thermometer' aria-hidden='true'></i>";
+                        echo "<button id='thermometer'> <i class='fa fa-thermometer-empty' aria-hidden='true'></i> </button>";
                         } else if($row['priority'] == 2){
-                        echo "<i class='fa fa-thermometer-half' id='thermometer' aria-hidden='true'></i>";
+                        echo "<button id='thermometer'> <i class='fa fa-thermometer-half' aria-hidden='true'></i> </button>";
                         } else {
-                        echo "<i class='fa fa-thermometer-full' id='thermometer' aria-hidden='true'></i>";
+                        echo "<button id='thermometer'> <i class='fa fa-thermometer-full' aria-hidden='true'></i> </button>";
                         }
                     echo "</span>";
-                    echo "<div id = 'list_tags'>";
-                        $string_tags = $row['tags'];
-                        $array_tags = explode(', ', $string_tags);
-                        $i = 0;
-                        while ($i < count($array_tags)) {
-                        echo "<span>";
-                            echo $array_tags[$i];
-                        echo "</span>";
-                        $i++;
-                        }
-                    echo "</div>";
                 echo "</div>";
                 }?>
             </div>
