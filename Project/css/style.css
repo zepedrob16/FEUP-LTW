@@ -277,12 +277,11 @@ body > header #searchBox #filtersubmit {
     margin-right: 1em;
 
     display: grid;
-    grid-template-rows: 45px auto 35px;
+    grid-template-rows: 45px auto;
     grid-template-columns: 1fr;
     grid-template-areas:
      "title"
      "items"
-     "footer"
 }
 
 
@@ -327,16 +326,6 @@ body > header #searchBox #filtersubmit {
 .content .savedLists #single_list #list_header button:hover{
     color: red;
     cursor: pointer;
-}
-
-.content .savedLists #single_list #list_priority{
-    grid-area: footer;
-    line-height: 0.1em;
-    font-size: 1.3em;
-    text-align: right;
-    position: relative;
-    right: 10px;
-    top: 5px;
 }
 
 .content .savedLists #single_list #list_priority button{
