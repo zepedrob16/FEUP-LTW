@@ -101,6 +101,7 @@
                             echo "<input type='text' class='item' value=".$second_row['content']." unique_id=".$second_row['id_bp']." disabled>";
                             echo "<button class='delete_item'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
                             echo "<button class='edit_item'><i class='fa fa-pencil' aria-hidden='true'></i></button>";
+                            echo "<button class='tick_item'><i class='fa fa-check-circle' aria-hidden='true'></i></button>";
                         }
                         echo "</div>";
 

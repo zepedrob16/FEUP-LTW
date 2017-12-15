@@ -46,7 +46,7 @@ else if ($function == 'update_priority') {
 else if ($function == 'add_bulletpoint') {
 	global $dbh;
 	$stmt = $dbh->prepare("INSERT INTO Bulletpoint(content, checked, id_list) VALUES (?, 0, ?)");
-	return $stmt->execute(array($_POST[content], $_POST[id_list]));
+	return $stmt->execute(array($_POST['content'], $_POST['id_list']));
 }
 
 else if ($function == 'update_bulletpoint') {

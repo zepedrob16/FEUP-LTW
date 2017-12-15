@@ -4,8 +4,10 @@ let post_it = document.getElementById('new_list');
 document.getElementById('list_title_add').addEventListener('keydown', (event) => {
 	
 	if (event.keyCode == 13) {
-		ajax_update({'function': 'init_list', 'title': document.getElementById('list_title_add').value});
-		document.getElementById('list_title_add').value = '';
+		if (document.getElementById('list_title_add').value.length != 0) {
+			ajax_update({'function': 'init_list', 'title': document.getElementById('list_title_add').value});
+			document.getElementById('list_title_add').value = '';
+		}
 	}
 });
 
@@ -33,6 +35,16 @@ for (let i = 0; i < editables.length; i++) {
 	});
 }
 
+editables = document.getElementsByClassName('tick_item');
+for (let i = 0; i < editables.length; i++) {
+
+	editables[i].addEventListener('click', (event) => {
+		editables[i].checked = +!editables[i].checked;
+		console.log(editables[i].checked);
+		let id_bp = editables[i].getAttribute('unique_id');
+		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': editables[i].checked, 'id_bp': id_bp});
+	});
+}
 
 editables = document.getElementsByClassName('delete_item');
 for (let i = 0; i < editables.length; i++) {
@@ -52,8 +64,12 @@ for (let i = 0; i < editables.length; i++) {
 	editables[i].addEventListener('focusout', (event) => {
 		editables[i].setAttribute('value', editables[i].value);
 		let id_bp = editables[i].getAttribute('unique_id');
-
 		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': 0, 'id_bp': id_bp});
+		editables[i].setAttribute('disabled', '');
+	});
+
+	editables[i].addEventListener('dblclick', (event) => {
+		console.log('this');
 	});
 }
 
@@ -66,7 +82,6 @@ for (let i = 0; i < deletable.length; i++) {
 		deletable[i].parentNode.parentNode.remove();
 	});
 }
-
 
 
 let extra_buttons_listener = function() {
