@@ -17,6 +17,7 @@ function get_filters($username) {
 	$stmt->execute(array($username));
 	while ($row = $stmt->fetch()) {
      	echo $row['tags'];
+      echo "<br>";
     }
 }
 

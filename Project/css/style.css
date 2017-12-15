@@ -482,22 +482,6 @@ body > header #searchBox #filtersubmit {
     cursor: pointer;
 }
 
-.categories #sortByDate button:hover{
-    background-color: #f1f1f1;
-}
-
-.categories #sortByDate button{
-    display: flex;
-    width: 100%;
-    padding-left: 3em;
-}
-
-.categories #sortByDate button i{
-    position: relative;
-    top: 15px;
-    right: 5px;
-}
-
 .categories #sortByFilter{
     display: inline-block;
 }

@@ -35,20 +35,6 @@
             </span>
         </header>
         <aside class="categories">
-            <div id="sortByDate">
-                <button>
-                <i class="fa fa-calendar-o fa-fw" id="dateIcon" aria-hidden="true"></i>
-                <p>Today</p>
-                </button>
-                <button>
-                <i class="fa fa-calendar fa-fw" id="dateIcon" aria-hidden="true"></i>
-                <p>Week</p>
-                </button>
-                <button>
-                <i class="fa fa-calendar-minus-o fa-fw" id="dateIcon" aria-hidden="true"></i>
-                <p>Someday</p>
-                </button>
-            </div>
             <div id="sortByFilter">
                 <button class="tab_link" onclick="switch_filter_tab(event, 'filter_tab_content')"><p>Filters</p></button>
             </div>
