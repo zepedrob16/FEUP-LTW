@@ -25,42 +25,46 @@
                 <button type="button" id="dropdown"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
                 <div id="headerDropdown">
                     <a href="profile.php">Profile</a>
-                    <a href="#">Archived</a>
                     <a href="index.html">Logout</a>
                 </div>
             </span>
         </header>
-        
-        <aside class="categories">
-            <div id="sortByDate">
-                <button>
-                <i class="fa fa-user-circle-o" id="userIcon" aria-hidden="true"></i>
-                <p>Edit Profile</p>
-                </button>
-                <button>
-                <i class="fa fa-lock" id="lockIcon" aria-hidden="true"></i>
-                <p>Change Password</p>
-                </button>
-            </div>
-        </aside>
         <div class="content">
             <div id="info">
-                <span id="cropPic">
-                    <img id="profilePic" src="resources/avatars/<?php get_avatar_name($_SESSION['username']); ?>"/>
-                </span>
+                <div id="editProfilePic">
+                    <span id="cropPic">
+                        <img id="profilePic" src="resources/avatars/<?php get_avatar_name($_SESSION['username']); ?>"/>
+                    </span>
+                    <form id="upload_file" method="post" enctype="multipart/form-data">
+                        <input id="upload_button" type="file" name="image" />
+                        <input type="submit" name="submit" value="Upload" />
+                    </form>
+                </div>
+                
+                <div class="editInfo">
+                    <div class="fullName">
+                        Full Name:
+                        <input id="fullName" value=<?php get_name($_SESSION['username']); ?> />
+                    </div>
 
-                <input id="fullName" value=<?php get_name($_SESSION['username']); ?> />
-                <div id="username"> <?php get_username($_SESSION['username']); ?> </div>
-                <input id="password" type="password" />
-                <input id="email" value=<?php get_email($_SESSION['username']); ?> />
+                    <div class="username">
+                        Username: 
+                        <input id="username" value=<?php get_username($_SESSION['username']); ?> disabled/>
+                    </div>
 
-                <form id="upload_file" method="post" enctype="multipart/form-data">
-                    <input id="upload_button" type="file" name="image" />
-                    <input type="submit" name="submit" value="Upload" />
-                </form>
+                    <div class="email">
+                        E-mail:
+                        <input id="email" value=<?php get_email($_SESSION['username']); ?> />
+                    </div>
 
-                <button id="save_changes">Save changes</button>
+                    <div class="password">
+                        Password:
+                        <input id="password" type="password" />
+                    </div>
 
+                    <div> <button id="save_changes">Save changes</button> </div>
+                    
+                </div>
             </div>
         </div>
         <footer>
