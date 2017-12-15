@@ -64,7 +64,8 @@
                 global $dbh;
                 $stmt = $dbh->prepare("SELECT * FROM List WHERE username = ?");
                 $stmt->execute(array($_SESSION['username']));
-                while($row = $stmt->fetch()) {
+                $allrows = $stmt->fetchAll();
+                foreach ($allrows as $row) {
                 echo "<div id='single_list' unique_id=".$row['id_list'].">";
                     echo "<div id='list_header'>";
                         echo "<div id='header'>";

@@ -3,6 +3,6 @@ session_start();
 session_unset();
 session_destroy();
 
-header('Location: ' . urlencode('index.html'));
+header('Location: ' . urlencode('index.php'));
 exit();
 ?>

@@ -25,7 +25,7 @@
                 <button type="button" id="dropdown"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
                 <div id="headerDropdown">
                     <a href="profile.php">Profile</a>
-                    <a href="index.html">Logout</a>
+                    <a href="index.php">Logout</a>
                 </div>
             </span>
         </header>

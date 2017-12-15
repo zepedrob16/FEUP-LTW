@@ -33,14 +33,19 @@ document.getElementById('filter').addEventListener('keydown', (event) => {
 	}
 });
 
-let editables = document.getElementsByClassName('edit_item');
+editables = document.getElementsByClassName('tick_item');
 for (let i = 0; i < editables.length; i++) {
 
 	editables[i].addEventListener('click', (event) => {
-		let editable = editables[i];
-		editable.removeAttribute('disabled');
-		editable.setAttribute('value', '');
-		editable.focus();
+		editables[i].checked = +!editables[i].checked;
+
+		if (editables[i].checked)
+			editables[i].style.textDecoration = "line-through";
+		else
+			editables[i].style.textDecoration = "";
+
+		let id_bp = editables[i].getAttribute('unique_id');
+		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': editables[i].checked, 'id_bp': id_bp});
 	});
 }
 
@@ -49,12 +54,7 @@ for (let i = 0; i < editables.length; i++) {
 
 	editables[i].addEventListener('click', (event) => {
 		editables[i].checked = +!editables[i].checked;
-		
-		if (editables[i].checked)
-			editables[i].style.textDecoration = "line-through";
-		else
-			editables[i].style.textDecoration = "";
-
+		console.log(editables[i].checked);
 		let id_bp = editables[i].getAttribute('unique_id');
 		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': editables[i].checked, 'id_bp': id_bp});
 	});
@@ -223,4 +223,5 @@ function ajax_update(data) {
 
 function ajax_request_listener() {
 	console.log(this.responseText);
+	location.reload();
 }
