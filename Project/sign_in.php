@@ -9,7 +9,7 @@ if (is_login_correct($_POST['username'], $_POST['password'])) {
 	exit;
 }
 else {
-	header('Location: ' . urlencode('index.html'));
+	header('Location: ' . urlencode('index.php'));
 }
 
 ?>

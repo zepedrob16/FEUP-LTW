@@ -17,8 +17,10 @@ for (let i = 0; i < list_adders.length; i++) {
 	list_adders[i].addEventListener('keydown', (event) => {
 
 		if (event.keyCode == 13) {
-			let id_list = list_adders[i].parentNode.parentNode.getAttribute('unique_id');
-			ajax_update({'function': 'add_bulletpoint', 'content': list_adders[i].value, 'id_list': id_list});
+			if (list_adders[i].value != '') {
+				let id_list = list_adders[i].parentNode.parentNode.getAttribute('unique_id');
+				ajax_update({'function': 'add_bulletpoint', 'content': list_adders[i].value, 'id_list': id_list});
+			}
 		}
 
 	});
@@ -33,14 +35,19 @@ document.getElementById('filter').addEventListener('keydown', (event) => {
 	}
 });
 
-let editables = document.getElementsByClassName('edit_item');
+let editables = document.getElementsByClassName('tick_item');
 for (let i = 0; i < editables.length; i++) {
 
 	editables[i].addEventListener('click', (event) => {
-		let editable = editables[i];
-		editable.removeAttribute('disabled');
-		editable.setAttribute('value', '');
-		editable.focus();
+		editables[i].checked = +!editables[i].checked;
+
+		if (editables[i].checked)
+			editables[i].style.textDecoration = "line-through";
+		else
+			editables[i].style.textDecoration = "";
+
+		let id_bp = editables[i].getAttribute('unique_id');
+		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': editables[i].checked, 'id_bp': id_bp});
 	});
 }
 
@@ -49,14 +56,20 @@ for (let i = 0; i < editables.length; i++) {
 
 	editables[i].addEventListener('click', (event) => {
 		editables[i].checked = +!editables[i].checked;
-		
-		if (editables[i].checked)
-			editables[i].style.textDecoration = "line-through";
-		else
-			editables[i].style.textDecoration = "";
-
+		console.log(editables[i].checked);
 		let id_bp = editables[i].getAttribute('unique_id');
 		ajax_update({'function': 'update_bulletpoint', 'content': editables[i].value, 'checked': editables[i].checked, 'id_bp': id_bp});
+	});
+}
+
+editables = document.getElementsByClassName('edit_item');
+for (let i = 0; i < editables.length; i++) {
+
+	editables[i].addEventListener('click', (event) => {
+		let editable = editables[i];
+		editable.removeAttribute('disabled');
+		editable.setAttribute('value', '');
+		editable.focus();
 	});
 }
 
@@ -223,4 +236,5 @@ function ajax_update(data) {
 
 function ajax_request_listener() {
 	console.log(this.responseText);
+	location.reload();
 }

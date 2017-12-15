@@ -6,20 +6,6 @@ include_once('includes/session.php');
  *  Hashes the provided password.
 **/
 
-if (isset($_SESSION['csrf'])) {
-	if ($_SESSION['csrf'] !== $_POST['csrf']) {
-  		session_unset();
-		session_destroy();
-
-		header('Location: ' . urlencode('index.html'));
-		exit();
-	}
-}
-
-function generate_random_token() {
-  return bin2hex(openssl_random_pseudo_bytes(32));
-}
-
 function new_account($username, $password, $first_name, $last_name, $email) {
 	global $dbh;
     $stmt = $dbh->prepare('INSERT INTO User VALUES (?, ?, ?, ?)');

@@ -1,3 +1,4 @@
+<?php include_once("includes/session.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
         <header>
             <span id="title">
                 <!--<img src="resources/logo.png" width="50" />-->
-                <a href="index.html"><h1>LIST MAKER</h1></a>
+                <a href="index.php"><h1>LIST MAKER</h1></a>
             </span>
         </header>
         <div class="content">
@@ -22,6 +23,7 @@
                     <div id="text">Insert your credentials </div>
                     <div>
                         <i class="fa fa-user-circle-o" id="userIcon" aria-hidden="true"></i>
+                        <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf']?>">
                         <input type="text" name="username" id="inputVar" placeholder="Username...">
                     </div>
                     <div>
