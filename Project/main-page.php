@@ -35,23 +35,6 @@
             </span>
         </header>
         <aside class="categories">
-            <div id="sortByFilter">
-                <button class="tab_link" onclick="switch_filter_tab(event, 'filter_tab_content')"><p>Filters</p></button>
-            </div>
-            <div id="project_tab_content" class="tab_content">
-                <!-- Extracts PROJECTS from the db. -->
-                <p><?php
-                    include_once("databases/getter-db.php");
-                    get_projects($_SESSION['username']);
-                ?></p>
-            </div>
-            <div id="filter_tab_content" class="tab_content" style="display: none">
-                <!-- Extracts FILTERS from the db. -->
-                <p><?php
-                    include_once("databases/getter-db.php");
-                    get_filters($_SESSION['username']);
-                ?></p>
-            </div>
         </aside>
         <div class="content">
             
@@ -92,15 +75,6 @@
 
                         echo "<input type='text' name='add_item' class='single_bulletpoint_add' placeholder='Add an item...'>";
                     echo "</div>";
-                    echo "<span id = 'list_priority'>";
-                        if($row['priority'] == 1){
-                        echo "<button id='thermometer'> <i class='fa fa-thermometer-empty' aria-hidden='true'></i> </button>";
-                        } else if($row['priority'] == 2){
-                        echo "<button id='thermometer'> <i class='fa fa-thermometer-half' aria-hidden='true'></i> </button>";
-                        } else {
-                        echo "<button id='thermometer'> <i class='fa fa-thermometer-full' aria-hidden='true'></i> </button>";
-                        }
-                    echo "</span>";
                 echo "</div>";
                 }?>
             </div>
