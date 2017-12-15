@@ -25,15 +25,8 @@ document.getElementById('list_title_add').addEventListener('keydown', (event) =>
 
 let extra_buttons_listener = function() {
 
-	// Creates a DONE button.
-	let save_button = document.createElement('button');
-	save_button.setAttribute('id', 'save_button');
-	save_button.setAttribute('type', 'submit');
-	save_button.innerHTML = "Done";
-	post_it.appendChild(save_button);
-
 	// Creates a HASHTAG input.
-	let hashtags_input = document.createElement('input');
+	/*let hashtags_input = document.createElement('input');
 	hashtags_input.setAttribute('class', 'content');
 	hashtags_input.setAttribute('id', 'hashtags');
 	hashtags_input.setAttribute('type', 'text');
@@ -54,7 +47,7 @@ let extra_buttons_listener = function() {
 
 	});
 
-	post_it.appendChild(hashtags_input);
+	post_it.appendChild(hashtags_input);*/
 
 	document.getElementById('list_title_add').removeEventListener('click', extra_buttons_listener); // Only run once.
 }

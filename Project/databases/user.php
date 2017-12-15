@@ -5,10 +5,28 @@ include_once('includes/session.php');
  *  Creates a new account (only if it already isn't on the database).
  *  Hashes the provided password.
 **/
+
+if (isset($_SESSION['csrf'])) {
+	if ($_SESSION['csrf'] !== $_POST['csrf']) {
+  		session_unset();
+		session_destroy();
+
+		header('Location: ' . urlencode('index.html'));
+		exit();
+	}
+}
+
+function generate_random_token() {
+  return bin2hex(openssl_random_pseudo_bytes(32));
+}
+
 function new_account($username, $password, $first_name, $last_name, $email) {
 	global $dbh;
     $stmt = $dbh->prepare('INSERT INTO User VALUES (?, ?, ?, ?)');
-    return $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT), $first_name . " " . $last_name, $email));
+    $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT), $first_name . " " . $last_name, $email));
+
+    $stmt = $dbh->prepare('INSERT INTO Image(name, extension, size, last_modified, username) VALUES (?, ?, ?, ?, ?)');
+    return $stmt->execute(array('default-avatar.png', 'image/png', '0', '0', $username));
 }
 
 # Tries to match login credentials on the database.
@@ -56,4 +74,4 @@ function check_password($password, $confirm_pw) {
 	return true;
 }
 
-?> 	
+?>

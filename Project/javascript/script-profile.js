@@ -5,6 +5,7 @@ let upload_profile_pic = document.getElementById('upload_file');
  *	Sends AJAX call to update the database with the new avatar.
 **/
 upload_profile_pic.addEventListener('change', (event) => {
+	let reader = new FileReader();
 
 	let name = upload_button.files[0]['name'];
 	let extension = upload_button.files[0]['type'];
@@ -19,6 +20,14 @@ upload_profile_pic.addEventListener('change', (event) => {
 	event.preventDefault();
 
 	ajax_update({'function': 'upload_file', 'name': name, 'extension': extension, 'size': size, 'last_modified': last_modified});
+});
+
+document.getElementById('save_changes').addEventListener('click', (event) => {
+	let new_name = document.getElementById('fullName').value;
+	let new_password = document.getElementById('password').value;
+	let new_email = document.getElementById('email').value;
+
+	ajax_update({'function': 'update_user', 'password': new_password, 'name': new_name, 'email': new_email});
 });
 
 /**

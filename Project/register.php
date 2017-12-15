@@ -13,12 +13,12 @@
 		<header>
 			<span id="title">
                 <!--<img src="resources/logo.png" width="50"/>-->
-				<a href="register.html"><h1>LIST MAKER</h1></a>
+				<a href= <?php echo urlencode('register.php') ?>> <h1>LIST MAKER</h1></a>
 			</span>
 		</header>
 		<div class="content">
 			<div id="signIn">
-				<form action="signup.php" method="post">
+				<form action= <?php echo urlencode('signup.php') ?> method="post">
 					<div>Insert your credentials </div>
 					<div>
 						<input type="text" name="firstName" id="inputVar" placeholder="First Name..." required>

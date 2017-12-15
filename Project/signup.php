@@ -3,16 +3,18 @@
 include_once('includes/init.php');
 include_once('databases/user.php');
 
-if (new_account($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['email'])) {
+if(!preg_match("/^[a-zA-Z0-9\s]+$/", $_POST['username'])) {
+	header('Location: ' . urlencode('register.php'));
+	exit;
+}
 
-	$message = "Account created";
-	echo "<script type='text/javascript'>alert('$message');</script>";
+else if (new_account($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['email'])) {
 
-	header('Location: main-page.php');
+	header('Location: ' . urlencode('sign_in.php'));
 	exit;
 }
 
 else {
-	header('Location: register.html');
+	header('Location: ' . urlencode('register.php'));
 }
 ?>

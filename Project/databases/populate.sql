@@ -84,4 +84,4 @@ INSERT INTO Bulletpoint VALUES (8, "Nintendo Switch", 0, 3);
 INSERT INTO Bulletpoint VALUES (9, "Coal", 1, 3);
 
 -- Populate IMAGE table.
-INSERT INTO Image VALUES(1, "default-avatar", ".png", 123456, 123456, "admin");
+INSERT INTO Image VALUES(1, "default-avatar.png", ".png", 123456, 123456, "admin");
