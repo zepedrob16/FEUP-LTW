@@ -356,7 +356,7 @@ body > header #searchBox #filtersubmit {
 }
 
 .content .savedLists #single_list #bulletpoints .bulletpoint_selection .item {
-    width: 80%;
+    width: 45%;
     padding: 0.8em;
     margin-left: 1em;
     border: none;
@@ -372,11 +372,14 @@ body > header #searchBox #filtersubmit {
 .content .savedLists #single_list #bulletpoints .bulletpoint_selection button {
     float: right;
     position: relative;
-    bottom: 35px;
     right: 10px;
     border: none;
     background-color: #f7f7f7;
     height: 28px;
+}
+
+.content .savedLists #single_list #bulletpoints .bulletpoint_selection .tick_item:hover {
+    color: blue;
 }
 
 .content .savedLists #single_list #bulletpoints .bulletpoint_selection .delete_item:hover {
